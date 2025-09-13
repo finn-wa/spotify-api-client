@@ -13,7 +13,7 @@
         "noUnusedVariables": { "fix": "none", "level": "warn" }
       }
     },
-    "includes": ["**", "!src/openapi/**"]
+    "includes": ["src", "!src/openapi/**", "openapi", "!openapi/client/**"]
   },
   "javascript": {
     "formatter": {

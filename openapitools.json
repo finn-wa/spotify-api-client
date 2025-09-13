@@ -11,7 +11,6 @@
         "additionalProperties": {
           "npmName": "generated-spotify-api-client",
           "legacyDiscriminatorBehavior": false,
-          "fileNaming": "kebab-case",
           "prefixParameterInterfaces": true,
           "supportsES6": true,
           "withoutRuntimeChecks": true

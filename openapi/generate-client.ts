@@ -39,7 +39,7 @@ function saveGeneratedSourceCode() {
   cpSync(`${cwd}/client/src`, `${cwd}/client/openapi`, { recursive: true });
   // Then move the copy into ./src
   renameSync(`${cwd}/client/openapi`, "./src/openapi");
-  // Run biome formatter and lint auto-fix
+
   console.log("Formatting & linting generated files...");
   const biomeResult = spawnSync(
     "node_modules/.bin/biome",
