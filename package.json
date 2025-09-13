@@ -1,0 +1,17 @@
+{
+  "name": "spotify-api-client",
+  "scripts": {
+    "generate-client": "bun run openapi/generate-client.ts"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "devDependencies": {
+    "@biomejs/biome": "2.2.4",
+    "@openapitools/openapi-generator-cli": "2.23.1",
+    "dotenv": "17.2.2",
+    "typescript": "5.9.2",
+    "@types/bun": "latest"
+  },
+  "dependencies": {},
+  "private": true
+}
