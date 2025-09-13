@@ -1,6 +1,9 @@
-import AccessTokenHelpers from "./AccessTokenHelpers.js";
-import type IAuthStrategy from "./IAuthStrategy.js";
-import type { AccessToken, SdkConfiguration } from "./types.js";
+import { type AccessToken, emptyAccessToken } from "../token/AccessToken.js";
+import {
+  calculateAccessTokenExpiry,
+  refreshCachedAccessToken,
+} from "../token/AccessTokenHelpers.js";
+import type AuthStrategy from "./AuthStrategy.js";
 
 /**
  * This strategy is used when you already have an access token and want to use it.
@@ -10,23 +13,15 @@ import type { AccessToken, SdkConfiguration } from "./types.js";
  * @param {string} clientId - Spotify application client id.
  * @param {string} accessToken - The access token returned from a client side Authorization Code with PKCE flow.
  */
-export default class ProvidedAccessTokenStrategy implements IAuthStrategy {
-  private refreshTokenAction: (
-    clientId: string,
-    token: AccessToken,
-  ) => Promise<AccessToken>;
-
+export default class ProvidedAccessTokenStrategy implements AuthStrategy {
   constructor(
     protected clientId: string,
     protected accessToken: AccessToken,
-    refreshTokenAction?: (
+    private readonly refreshTokenAction: (
       clientId: string,
       token: AccessToken,
-    ) => Promise<AccessToken>,
+    ) => Promise<AccessToken> = refreshCachedAccessToken,
   ) {
-    this.refreshTokenAction =
-      refreshTokenAction || AccessTokenHelpers.refreshCachedAccessToken;
-
     // If the raw token from the jwt response is provided here
     // Calculate an absolute `expiry` value.
     // Caveat: If this token isn't fresh, this value will be off.
@@ -35,13 +30,9 @@ export default class ProvidedAccessTokenStrategy implements IAuthStrategy {
     // issuing and passing here.
 
     if (!this.accessToken.expires) {
-      this.accessToken.expires = AccessTokenHelpers.calculateExpiry(
-        this.accessToken,
-      );
+      this.accessToken.expires = calculateAccessTokenExpiry(this.accessToken);
     }
   }
-
-  public setConfiguration(_: SdkConfiguration): void {}
 
   public async getOrCreateAccessToken(): Promise<AccessToken> {
     if (this.accessToken.expires && this.accessToken.expires <= Date.now()) {
@@ -60,12 +51,6 @@ export default class ProvidedAccessTokenStrategy implements IAuthStrategy {
   }
 
   public removeAccessToken(): void {
-    this.accessToken = {
-      access_token: "",
-      token_type: "",
-      expires_in: 0,
-      refresh_token: "",
-      expires: 0,
-    };
+    this.accessToken = emptyAccessToken;
   }
 }

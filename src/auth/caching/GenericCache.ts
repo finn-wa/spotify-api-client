@@ -1,12 +1,13 @@
-import { isEmptyAccessToken } from "../auth/IAuthStrategy.js";
-import type { ICachable, ICacheStore, ICachingStrategy } from "./types.js";
+import { isEmptyAccessToken } from "../token/AccessToken.js";
+import type { CachingStrategy } from "./CachingStrategy.js";
+import type { Cachable, CacheStore } from "./types.js";
 
-export default class GenericCache implements ICachingStrategy {
+export default class GenericCache implements CachingStrategy {
   constructor(
-    private storage: ICacheStore,
+    private storage: CacheStore,
     private updateFunctions: Map<
       string,
-      (item: any) => Promise<ICachable>
+      (item: any) => Promise<Cachable>
     > = new Map(),
     private autoRenewInterval: number = 0,
     private autoRenewWindow: number = 2 * 60 * 1000, // Two minutes
@@ -18,9 +19,9 @@ export default class GenericCache implements ICachingStrategy {
 
   public async getOrCreate<T>(
     cacheKey: string,
-    createFunction: () => Promise<T & ICachable & object>,
-    updateFunction?: (item: T) => Promise<T & ICachable & object>,
-  ): Promise<T & ICachable> {
+    createFunction: () => Promise<T & Cachable & object>,
+    updateFunction?: (item: T) => Promise<T & Cachable & object>,
+  ): Promise<T & Cachable> {
     if (updateFunction) {
       this.updateFunctions.set(cacheKey, updateFunction);
     }
@@ -42,9 +43,9 @@ export default class GenericCache implements ICachingStrategy {
     return newCacheItem;
   }
 
-  public async get<T>(cacheKey: string): Promise<(T & ICachable) | null> {
+  public async get<T>(cacheKey: string): Promise<(T & Cachable) | null> {
     let asString = this.storage.get(cacheKey);
-    let cachedItem: T & ICachable = asString ? JSON.parse(asString) : null;
+    let cachedItem: T & Cachable = asString ? JSON.parse(asString) : null;
 
     if (
       this.itemDueToExpire(cachedItem) &&
@@ -80,11 +81,11 @@ export default class GenericCache implements ICachingStrategy {
 
   public set(cacheKey: string, value: object, expiresIn: number): void {
     const expires = Date.now() + expiresIn;
-    const cacheItem: ICachable = { ...value, expires };
+    const cacheItem: Cachable = { ...value, expires };
     this.setCacheItem(cacheKey, cacheItem);
   }
 
-  public setCacheItem(cacheKey: string, cacheItem: ICachable): void {
+  public setCacheItem(cacheKey: string, cacheItem: Cachable): void {
     const asString = JSON.stringify(cacheItem);
     this.storage.set(cacheKey, asString);
   }
@@ -93,7 +94,7 @@ export default class GenericCache implements ICachingStrategy {
     this.storage.remove(cacheKey);
   }
 
-  private itemDueToExpire(item: ICachable): boolean {
+  private itemDueToExpire(item: Cachable): boolean {
     if (!item) {
       return false;
     }
@@ -120,8 +121,8 @@ export default class GenericCache implements ICachingStrategy {
 
   private async tryUpdateItem(
     key: string,
-    cachedItem: ICachable,
-    updateFunction: (item: ICachable) => Promise<ICachable>,
+    cachedItem: Cachable,
+    updateFunction: (item: Cachable) => Promise<Cachable>,
   ) {
     try {
       const updated = await updateFunction(cachedItem);

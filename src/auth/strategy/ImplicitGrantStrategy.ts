@@ -1,38 +1,35 @@
-import type { ICachingStrategy } from "../caching/types.js";
-import AccessTokenHelpers from "./AccessTokenHelpers.js";
-import type IAuthStrategy from "./IAuthStrategy.js";
-import { emptyAccessToken } from "./IAuthStrategy.js";
-import type { AccessToken, SdkConfiguration } from "./types.js";
+import type { CachingStrategy } from "../caching/CachingStrategy.js";
+import type { SpotifyAuthConfig } from "../SpotifyAuthConfig.js";
+import type { AccessToken } from "../token/AccessToken.js";
+import { emptyAccessToken } from "../token/AccessToken.js";
+import {
+  refreshCachedAccessToken,
+  toCachableAccessToken,
+} from "../token/AccessTokenHelpers.js";
+import type AuthStrategy from "./AuthStrategy.js";
 
-export default class ImplicitGrantStrategy implements IAuthStrategy {
+export default class ImplicitGrantStrategy implements AuthStrategy {
   private static readonly cacheKey = "spotify-sdk:ImplicitGrantStrategy:token";
-  private configuration: SdkConfiguration | null = null;
-  private get cache(): ICachingStrategy {
-    return this.configuration!.cachingStrategy;
+  private get cache(): CachingStrategy {
+    return this.configuration.cachingStrategy;
   }
 
   constructor(
     private clientId: string,
     private redirectUri: string,
     private scopes: string[],
+    private readonly configuration: SpotifyAuthConfig,
   ) {}
-
-  public setConfiguration(configuration: SdkConfiguration): void {
-    this.configuration = configuration;
-  }
 
   public async getOrCreateAccessToken(): Promise<AccessToken> {
     const token = await this.cache.getOrCreate<AccessToken>(
       ImplicitGrantStrategy.cacheKey,
       async () => {
         const token = await this.redirectOrVerifyToken();
-        return AccessTokenHelpers.toCachable(token);
+        return toCachableAccessToken(token);
       },
       async (expiring) => {
-        return AccessTokenHelpers.refreshCachedAccessToken(
-          this.clientId,
-          expiring,
-        );
+        return refreshCachedAccessToken(this.clientId, expiring);
       },
     );
 

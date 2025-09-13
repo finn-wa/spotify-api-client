@@ -1,5 +1,5 @@
 import GenericCache from "./GenericCache.js";
-import type { ICacheStore } from "./types.js";
+import type { CacheStore } from "./types.js";
 
 export default class InMemoryCachingStrategy extends GenericCache {
   constructor() {
@@ -7,7 +7,7 @@ export default class InMemoryCachingStrategy extends GenericCache {
   }
 }
 
-class DictionaryCacheStore implements ICacheStore {
+class DictionaryCacheStore implements CacheStore {
   private cache = new Map<string, string>();
 
   public get(key: string): string | null {

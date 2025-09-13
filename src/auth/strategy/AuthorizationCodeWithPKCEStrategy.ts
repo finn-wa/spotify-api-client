@@ -1,46 +1,45 @@
-import type { ICachable, ICachingStrategy } from "../caching/types.js";
-import AccessTokenHelpers from "./AccessTokenHelpers.js";
-import type IAuthStrategy from "./IAuthStrategy.js";
-import { emptyAccessToken } from "./IAuthStrategy.js";
-import type { AccessToken, SdkConfiguration } from "./types.js";
+import type { CachingStrategy } from "../caching/CachingStrategy.js";
+import type { Cachable } from "../caching/types.js";
+import type { SpotifyAuthConfig } from "../SpotifyAuthConfig.js";
+import type { AccessToken } from "../token/AccessToken.js";
+import { emptyAccessToken } from "../token/AccessToken.js";
+import {
+  generateCodeChallenge,
+  generateCodeVerifier,
+  refreshCachedAccessToken,
+  toCachableAccessToken,
+} from "../token/AccessTokenHelpers.js";
+import type AuthStrategy from "./AuthStrategy.js";
 
-interface CachedVerifier extends ICachable {
+interface CachedVerifier extends Cachable {
   verifier: string;
   expiresOnAccess: boolean;
 }
 
-export default class AuthorizationCodeWithPKCEStrategy
-  implements IAuthStrategy
-{
+export default class AuthorizationCodeWithPKCEStrategy implements AuthStrategy {
   private static readonly cacheKey =
     "spotify-sdk:AuthorizationCodeWithPKCEStrategy:token";
-  private configuration: SdkConfiguration | null = null;
-  protected get cache(): ICachingStrategy {
-    return this.configuration!.cachingStrategy;
+
+  protected get cache(): CachingStrategy {
+    return this.configuration.cachingStrategy;
   }
 
   constructor(
-    protected clientId: string,
-    protected redirectUri: string,
-    protected scopes: string[],
+    private readonly clientId: string,
+    private readonly redirectUri: string,
+    private readonly scopes: string[],
+    private readonly configuration: SpotifyAuthConfig,
   ) {}
-
-  public setConfiguration(configuration: SdkConfiguration): void {
-    this.configuration = configuration;
-  }
 
   public async getOrCreateAccessToken(): Promise<AccessToken> {
     const token = await this.cache.getOrCreate<AccessToken>(
       AuthorizationCodeWithPKCEStrategy.cacheKey,
       async () => {
         const token = await this.redirectOrVerifyToken();
-        return AccessTokenHelpers.toCachable(token);
+        return toCachableAccessToken(token);
       },
       async (expiring) => {
-        return AccessTokenHelpers.refreshCachedAccessToken(
-          this.clientId,
-          expiring,
-        );
+        return refreshCachedAccessToken(this.clientId, expiring);
       },
     );
 
@@ -73,8 +72,8 @@ export default class AuthorizationCodeWithPKCEStrategy
   }
 
   private async redirectToSpotify() {
-    const verifier = AccessTokenHelpers.generateCodeVerifier(128);
-    const challenge = await AccessTokenHelpers.generateCodeChallenge(verifier);
+    const verifier = generateCodeVerifier(128);
+    const challenge = await generateCodeChallenge(verifier);
 
     const singleUseVerifier: CachedVerifier = {
       verifier,
@@ -101,7 +100,9 @@ export default class AuthorizationCodeWithPKCEStrategy
       );
     }
 
-    await this.configuration!.redirectionStrategy.onReturnFromRedirect();
+    if (this.configuration.redirectionStrategy.onReturnFromRedirect != null) {
+      await this.configuration.redirectionStrategy.onReturnFromRedirect();
+    }
     return await this.exchangeCodeForToken(code, verifier!);
   }
 

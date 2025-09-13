@@ -1,5 +1,5 @@
 import GenericCache from "./GenericCache.js";
-import type { ICacheStore } from "./types.js";
+import type { CacheStore } from "./types.js";
 
 export default class LocalStorageCachingStrategy extends GenericCache {
   constructor() {
@@ -7,7 +7,7 @@ export default class LocalStorageCachingStrategy extends GenericCache {
   }
 }
 
-class LocalStorageCacheStore implements ICacheStore {
+class LocalStorageCacheStore implements CacheStore {
   public get(key: string): string | null {
     return localStorage.getItem(key);
   }

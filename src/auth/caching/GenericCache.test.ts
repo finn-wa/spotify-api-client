@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import GenericCache from "./GenericCache";
-import type { ICacheStore } from "./types";
+import type { CacheStore } from "./types";
 
 describe("GenericCache", () => {
-  let store: ICacheStore;
+  let store: CacheStore;
   let sut: GenericCache;
   beforeEach(() => {
     store = new TestCacheStore();
@@ -197,7 +197,7 @@ describe("GenericCache", () => {
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-class TestCacheStore implements ICacheStore {
+class TestCacheStore implements CacheStore {
   private cache = new Map<string, string>();
 
   public get(key: string): string | null {

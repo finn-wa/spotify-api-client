@@ -1,36 +1,34 @@
-import type { ICachingStrategy } from "../caching/types.js";
-import AccessTokenHelpers from "./AccessTokenHelpers.js";
-import type IAuthStrategy from "./IAuthStrategy.js";
-import type { AccessToken, SdkConfiguration } from "./types.js";
+import type { CachingStrategy } from "../caching/CachingStrategy.js";
+import type { SpotifyAuthConfig } from "../SpotifyAuthConfig.js";
+import type { AccessToken } from "../token/AccessToken.js";
+import { toCachableAccessToken } from "../token/AccessTokenHelpers.js";
+import type AuthStrategy from "./AuthStrategy.js";
 
-export default class ClientCredentialsStrategy implements IAuthStrategy {
+export default class ClientCredentialsStrategy implements AuthStrategy {
   private static readonly cacheKey =
     "spotify-sdk:ClientCredentialsStrategy:token";
-  private configuration: SdkConfiguration | null = null;
-  private get cache(): ICachingStrategy {
-    return this.configuration!.cachingStrategy;
+
+  private get cache(): CachingStrategy {
+    return this.configuration.cachingStrategy;
   }
 
   constructor(
-    private clientId: string,
-    private clientSecret: string,
-    private scopes: string[] = [],
+    private readonly clientId: string,
+    private readonly clientSecret: string,
+    private readonly scopes: string[] = [],
+    private readonly configuration: SpotifyAuthConfig,
   ) {}
-
-  public setConfiguration(configuration: SdkConfiguration): void {
-    this.configuration = configuration;
-  }
 
   public async getOrCreateAccessToken(): Promise<AccessToken> {
     const token = await this.cache.getOrCreate<AccessToken>(
       ClientCredentialsStrategy.cacheKey,
       async () => {
         const token = await this.getTokenFromApi();
-        return AccessTokenHelpers.toCachable(token);
+        return toCachableAccessToken(token);
       },
       async (_) => {
         const refreshed = await this.getTokenFromApi();
-        return AccessTokenHelpers.toCachable(refreshed);
+        return toCachableAccessToken(refreshed);
       },
     );
 
