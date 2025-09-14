@@ -9,9 +9,8 @@
     "@biomejs/biome": "2.2.4",
     "@openapitools/openapi-generator-cli": "2.23.1",
     "@types/bun": "latest",
-    "dotenv": "17.2.2",
     "typescript": "5.9.2",
-    "vitest": "^3.2.4"
+    "vitest": "3.2.4"
   },
   "dependencies": {},
   "private": true
