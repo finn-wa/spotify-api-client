@@ -34,27 +34,27 @@ export interface AlbumBase {
    * @type {string}
    * @memberof AlbumBase
    */
-  albumType: AlbumBaseAlbumTypeEnum;
+  album_type: AlbumBaseAlbumTypeEnum;
   /**
    * The number of tracks in the album.
    * @type {number}
    * @memberof AlbumBase
    */
-  totalTracks: number;
+  total_tracks: number;
   /**
    * The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._
    *
    * @type {Array<string>}
    * @memberof AlbumBase
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * Known external URLs for this album.
    *
    * @type {ExternalUrlObject}
    * @memberof AlbumBase
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the album.
    *
@@ -89,14 +89,14 @@ export interface AlbumBase {
    * @type {string}
    * @memberof AlbumBase
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof AlbumBase
    */
-  releaseDatePrecision: AlbumBaseReleaseDatePrecisionEnum;
+  release_date_precision: AlbumBaseReleaseDatePrecisionEnum;
   /**
    * Included in the response when a content restriction is applied.
    *
@@ -163,27 +163,27 @@ export interface AlbumObject {
    * @type {string}
    * @memberof AlbumObject
    */
-  albumType: AlbumObjectAlbumTypeEnum;
+  album_type: AlbumObjectAlbumTypeEnum;
   /**
    * The number of tracks in the album.
    * @type {number}
    * @memberof AlbumObject
    */
-  totalTracks: number;
+  total_tracks: number;
   /**
    * The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._
    *
    * @type {Array<string>}
    * @memberof AlbumObject
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * Known external URLs for this album.
    *
    * @type {ExternalUrlObject}
    * @memberof AlbumObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the album.
    *
@@ -218,14 +218,14 @@ export interface AlbumObject {
    * @type {string}
    * @memberof AlbumObject
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof AlbumObject
    */
-  releaseDatePrecision: AlbumObjectReleaseDatePrecisionEnum;
+  release_date_precision: AlbumObjectReleaseDatePrecisionEnum;
   /**
    * Included in the response when a content restriction is applied.
    *
@@ -274,7 +274,7 @@ export interface AlbumObject {
    * @type {ExternalIdObject}
    * @memberof AlbumObject
    */
-  externalIds: ExternalIdObject;
+  external_ids: ExternalIdObject;
   /**
    * **Deprecated** The array is always empty.
    *
@@ -369,27 +369,27 @@ export interface ArtistDiscographyAlbumObject {
    * @type {string}
    * @memberof ArtistDiscographyAlbumObject
    */
-  albumType: ArtistDiscographyAlbumObjectAlbumTypeEnum;
+  album_type: ArtistDiscographyAlbumObjectAlbumTypeEnum;
   /**
    * The number of tracks in the album.
    * @type {number}
    * @memberof ArtistDiscographyAlbumObject
    */
-  totalTracks: number;
+  total_tracks: number;
   /**
    * The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._
    *
    * @type {Array<string>}
    * @memberof ArtistDiscographyAlbumObject
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * Known external URLs for this album.
    *
    * @type {ExternalUrlObject}
    * @memberof ArtistDiscographyAlbumObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the album.
    *
@@ -424,14 +424,14 @@ export interface ArtistDiscographyAlbumObject {
    * @type {string}
    * @memberof ArtistDiscographyAlbumObject
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof ArtistDiscographyAlbumObject
    */
-  releaseDatePrecision: ArtistDiscographyAlbumObjectReleaseDatePrecisionEnum;
+  release_date_precision: ArtistDiscographyAlbumObjectReleaseDatePrecisionEnum;
   /**
    * Included in the response when a content restriction is applied.
    *
@@ -466,7 +466,7 @@ export interface ArtistDiscographyAlbumObject {
    * @type {string}
    * @memberof ArtistDiscographyAlbumObject
    */
-  albumGroup: ArtistDiscographyAlbumObjectAlbumGroupEnum;
+  album_group: ArtistDiscographyAlbumObjectAlbumGroupEnum;
 }
 
 /**
@@ -524,7 +524,7 @@ export interface ArtistObject {
    * @type {ExternalUrlObject}
    * @memberof ArtistObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * Information about the followers of the artist.
    *
@@ -659,7 +659,7 @@ export interface AudioAnalysisObjectMeta {
    * @type {string}
    * @memberof AudioAnalysisObjectMeta
    */
-  analyzerVersion?: string;
+  analyzer_version?: string;
   /**
    * The platform used to read the track's audio data.
    * @type {string}
@@ -671,13 +671,13 @@ export interface AudioAnalysisObjectMeta {
    * @type {string}
    * @memberof AudioAnalysisObjectMeta
    */
-  detailedStatus?: string;
+  detailed_status?: string;
   /**
    * The return code of the analyzer process. 0 if successful, 1 if any errors occurred.
    * @type {number}
    * @memberof AudioAnalysisObjectMeta
    */
-  statusCode?: number;
+  status_code?: number;
   /**
    * The Unix timestamp (in seconds) at which this track was analyzed.
    * @type {number}
@@ -689,13 +689,13 @@ export interface AudioAnalysisObjectMeta {
    * @type {number}
    * @memberof AudioAnalysisObjectMeta
    */
-  analysisTime?: number;
+  analysis_time?: number;
   /**
    * The method used to read the track's audio data.
    * @type {string}
    * @memberof AudioAnalysisObjectMeta
    */
-  inputProcess?: string;
+  input_process?: string;
 }
 /**
  *
@@ -708,7 +708,7 @@ export interface AudioAnalysisObjectTrack {
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  numSamples?: number;
+  num_samples?: number;
   /**
    * Length of the track in seconds.
    * @type {number}
@@ -720,43 +720,43 @@ export interface AudioAnalysisObjectTrack {
    * @type {string}
    * @memberof AudioAnalysisObjectTrack
    */
-  sampleMd5?: string;
+  sample_md5?: string;
   /**
    * An offset to the start of the region of the track that was analyzed. (As the entire track is analyzed, this should always be 0.)
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  offsetSeconds?: number;
+  offset_seconds?: number;
   /**
    * The length of the region of the track was analyzed, if a subset of the track was analyzed. (As the entire track is analyzed, this should always be 0.)
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  windowSeconds?: number;
+  window_seconds?: number;
   /**
    * The sample rate used to decode and analyze this track. May differ from the actual sample rate of this track available on Spotify.
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  analysisSampleRate?: number;
+  analysis_sample_rate?: number;
   /**
    * The number of channels used for analysis. If 1, all channels are summed together to mono before analysis.
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  analysisChannels?: number;
+  analysis_channels?: number;
   /**
    * The time, in seconds, at which the track's fade-in period ends. If the track has no fade-in, this will be 0.0.
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  endOfFadeIn?: number;
+  end_of_fade_in?: number;
   /**
    * The time, in seconds, at which the track's fade-out period starts. If the track has no fade-out, this should match the track's length.
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  startOfFadeOut?: number;
+  start_of_fade_out?: number;
   /**
    * The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typically range between -60 and 0 db.
    *
@@ -776,19 +776,19 @@ export interface AudioAnalysisObjectTrack {
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  tempoConfidence?: number;
+  tempo_confidence?: number;
   /**
    * An estimated time signature. The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). The time signature ranges from 3 to 7 indicating time signatures of "3/4", to "7/4".
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  timeSignature?: number;
+  time_signature?: number;
   /**
    * The confidence, from 0.0 to 1.0, of the reliability of the `time_signature`.
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  timeSignatureConfidence?: number;
+  time_signature_confidence?: number;
   /**
    * The key the track is in. Integers map to pitches using standard [Pitch Class notation](https://en.wikipedia.org/wiki/Pitch_class). E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1.
    *
@@ -801,7 +801,7 @@ export interface AudioAnalysisObjectTrack {
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  keyConfidence?: number;
+  key_confidence?: number;
   /**
    * Mode indicates the modality (major or minor) of a track, the type of scale from which its melodic content is derived. Major is represented by 1 and minor is 0.
    *
@@ -814,7 +814,7 @@ export interface AudioAnalysisObjectTrack {
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  modeConfidence?: number;
+  mode_confidence?: number;
   /**
    * An [Echo Nest Musical Fingerprint (ENMFP)](https://academiccommons.columbia.edu/doi/10.7916/D8Q248M4) codestring for this track.
    * @type {string}
@@ -826,7 +826,7 @@ export interface AudioAnalysisObjectTrack {
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  codeVersion?: number;
+  code_version?: number;
   /**
    * An [EchoPrint](https://github.com/spotify/echoprint-codegen) codestring for this track.
    * @type {string}
@@ -838,7 +838,7 @@ export interface AudioAnalysisObjectTrack {
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  echoprintVersion?: number;
+  echoprint_version?: number;
   /**
    * A [Synchstring](https://github.com/echonest/synchdata) for this track.
    * @type {string}
@@ -850,7 +850,7 @@ export interface AudioAnalysisObjectTrack {
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  synchVersion?: number;
+  synch_version?: number;
   /**
    * A Rhythmstring for this track. The format of this string is similar to the Synchstring.
    * @type {string}
@@ -862,7 +862,7 @@ export interface AudioAnalysisObjectTrack {
    * @type {number}
    * @memberof AudioAnalysisObjectTrack
    */
-  rhythmVersion?: number;
+  rhythm_version?: number;
 }
 /**
  *
@@ -883,7 +883,7 @@ export interface AudioFeaturesObject {
    * @type {string}
    * @memberof AudioFeaturesObject
    */
-  analysisUrl?: string;
+  analysis_url?: string;
   /**
    * Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
    *
@@ -897,7 +897,7 @@ export interface AudioFeaturesObject {
    * @type {number}
    * @memberof AudioFeaturesObject
    */
-  durationMs?: number;
+  duration_ms?: number;
   /**
    * Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.
    *
@@ -966,14 +966,14 @@ export interface AudioFeaturesObject {
    * @type {number}
    * @memberof AudioFeaturesObject
    */
-  timeSignature?: number;
+  time_signature?: number;
   /**
    * A link to the Web API endpoint providing full details of the track.
    *
    * @type {string}
    * @memberof AudioFeaturesObject
    */
-  trackHref?: string;
+  track_href?: string;
   /**
    * The object type.
    *
@@ -1025,7 +1025,7 @@ export interface AudiobookBase {
    * @type {Array<string>}
    * @memberof AudiobookBase
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * The copyright statements of the audiobook.
    *
@@ -1046,7 +1046,7 @@ export interface AudiobookBase {
    * @type {string}
    * @memberof AudiobookBase
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * The edition of the audiobook.
    *
@@ -1067,7 +1067,7 @@ export interface AudiobookBase {
    * @type {ExternalUrlObject}
    * @memberof AudiobookBase
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the audiobook.
    *
@@ -1102,7 +1102,7 @@ export interface AudiobookBase {
    * @type {string}
    * @memberof AudiobookBase
    */
-  mediaType: string;
+  media_type: string;
   /**
    * The name of the audiobook.
    *
@@ -1144,7 +1144,7 @@ export interface AudiobookBase {
    * @type {number}
    * @memberof AudiobookBase
    */
-  totalChapters: number;
+  total_chapters: number;
 }
 
 /**
@@ -1175,7 +1175,7 @@ export interface AudiobookObject {
    * @type {Array<string>}
    * @memberof AudiobookObject
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * The copyright statements of the audiobook.
    *
@@ -1196,7 +1196,7 @@ export interface AudiobookObject {
    * @type {string}
    * @memberof AudiobookObject
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * The edition of the audiobook.
    *
@@ -1217,7 +1217,7 @@ export interface AudiobookObject {
    * @type {ExternalUrlObject}
    * @memberof AudiobookObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the audiobook.
    *
@@ -1252,7 +1252,7 @@ export interface AudiobookObject {
    * @type {string}
    * @memberof AudiobookObject
    */
-  mediaType: string;
+  media_type: string;
   /**
    * The name of the audiobook.
    *
@@ -1294,7 +1294,7 @@ export interface AudiobookObject {
    * @type {number}
    * @memberof AudiobookObject
    */
-  totalChapters: number;
+  total_chapters: number;
   /**
    * The chapters of the audiobook.
    *
@@ -1412,21 +1412,21 @@ export interface ChapterBase {
    * @memberof ChapterBase
    * @deprecated
    */
-  audioPreviewUrl: string | null;
+  audio_preview_url: string | null;
   /**
    * A list of the countries in which the chapter can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
    *
    * @type {Array<string>}
    * @memberof ChapterBase
    */
-  availableMarkets?: Array<string>;
+  available_markets?: Array<string>;
   /**
    * The number of the chapter
    *
    * @type {number}
    * @memberof ChapterBase
    */
-  chapterNumber: number;
+  chapter_number: number;
   /**
    * A description of the chapter. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
    *
@@ -1440,14 +1440,14 @@ export interface ChapterBase {
    * @type {string}
    * @memberof ChapterBase
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * The chapter length in milliseconds.
    *
    * @type {number}
    * @memberof ChapterBase
    */
-  durationMs: number;
+  duration_ms: number;
   /**
    * Whether or not the chapter has explicit content (true = yes it does; false = no it does not OR unknown).
    *
@@ -1461,7 +1461,7 @@ export interface ChapterBase {
    * @type {ExternalUrlObject}
    * @memberof ChapterBase
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the chapter.
    *
@@ -1489,7 +1489,7 @@ export interface ChapterBase {
    * @type {boolean}
    * @memberof ChapterBase
    */
-  isPlayable: boolean;
+  is_playable: boolean;
   /**
    * A list of the languages used in the chapter, identified by their [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639) code.
    *
@@ -1510,21 +1510,21 @@ export interface ChapterBase {
    * @type {string}
    * @memberof ChapterBase
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof ChapterBase
    */
-  releaseDatePrecision: ChapterBaseReleaseDatePrecisionEnum;
+  release_date_precision: ChapterBaseReleaseDatePrecisionEnum;
   /**
    * The user's most recent position in the chapter. Set if the supplied access token is a user token and has the scope 'user-read-playback-position'.
    *
    * @type {ResumePointObject}
    * @memberof ChapterBase
    */
-  resumePoint?: ResumePointObject;
+  resume_point?: ResumePointObject;
   /**
    * The object type.
    *
@@ -1581,21 +1581,21 @@ export interface ChapterObject {
    * @memberof ChapterObject
    * @deprecated
    */
-  audioPreviewUrl: string | null;
+  audio_preview_url: string | null;
   /**
    * A list of the countries in which the chapter can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
    *
    * @type {Array<string>}
    * @memberof ChapterObject
    */
-  availableMarkets?: Array<string>;
+  available_markets?: Array<string>;
   /**
    * The number of the chapter
    *
    * @type {number}
    * @memberof ChapterObject
    */
-  chapterNumber: number;
+  chapter_number: number;
   /**
    * A description of the chapter. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
    *
@@ -1609,14 +1609,14 @@ export interface ChapterObject {
    * @type {string}
    * @memberof ChapterObject
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * The chapter length in milliseconds.
    *
    * @type {number}
    * @memberof ChapterObject
    */
-  durationMs: number;
+  duration_ms: number;
   /**
    * Whether or not the chapter has explicit content (true = yes it does; false = no it does not OR unknown).
    *
@@ -1630,7 +1630,7 @@ export interface ChapterObject {
    * @type {ExternalUrlObject}
    * @memberof ChapterObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the chapter.
    *
@@ -1658,7 +1658,7 @@ export interface ChapterObject {
    * @type {boolean}
    * @memberof ChapterObject
    */
-  isPlayable: boolean;
+  is_playable: boolean;
   /**
    * A list of the languages used in the chapter, identified by their [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639) code.
    *
@@ -1679,21 +1679,21 @@ export interface ChapterObject {
    * @type {string}
    * @memberof ChapterObject
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof ChapterObject
    */
-  releaseDatePrecision: ChapterObjectReleaseDatePrecisionEnum;
+  release_date_precision: ChapterObjectReleaseDatePrecisionEnum;
   /**
    * The user's most recent position in the chapter. Set if the supplied access token is a user token and has the scope 'user-read-playback-position'.
    *
    * @type {ResumePointObject}
    * @memberof ChapterObject
    */
-  resumePoint?: ResumePointObject;
+  resume_point?: ResumePointObject;
   /**
    * The object type.
    *
@@ -1789,7 +1789,7 @@ export interface ContextObject {
    * @type {ExternalUrlObject}
    * @memberof ContextObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the context.
    *
@@ -1873,13 +1873,13 @@ export interface CurrentlyPlayingContextObject {
    * @type {string}
    * @memberof CurrentlyPlayingContextObject
    */
-  repeatState?: string;
+  repeat_state?: string;
   /**
    * If shuffle is on or off.
    * @type {boolean}
    * @memberof CurrentlyPlayingContextObject
    */
-  shuffleState?: boolean;
+  shuffle_state?: boolean;
   /**
    * A Context Object. Can be `null`.
    * @type {ContextObject}
@@ -1897,13 +1897,13 @@ export interface CurrentlyPlayingContextObject {
    * @type {number}
    * @memberof CurrentlyPlayingContextObject
    */
-  progressMs?: number;
+  progress_ms?: number;
   /**
    * If something is currently playing, return `true`.
    * @type {boolean}
    * @memberof CurrentlyPlayingContextObject
    */
-  isPlaying?: boolean;
+  is_playing?: boolean;
   /**
    *
    * @type {QueueObjectCurrentlyPlaying}
@@ -1916,7 +1916,7 @@ export interface CurrentlyPlayingContextObject {
    * @type {string}
    * @memberof CurrentlyPlayingContextObject
    */
-  currentlyPlayingType?: string;
+  currently_playing_type?: string;
   /**
    * Allows to update the user interface based on which playback actions are available within the current context.
    *
@@ -1948,13 +1948,13 @@ export interface CurrentlyPlayingObject {
    * @type {number}
    * @memberof CurrentlyPlayingObject
    */
-  progressMs?: number;
+  progress_ms?: number;
   /**
    * If something is currently playing, return `true`.
    * @type {boolean}
    * @memberof CurrentlyPlayingObject
    */
-  isPlaying?: boolean;
+  is_playing?: boolean;
   /**
    *
    * @type {QueueObjectCurrentlyPlaying}
@@ -1967,7 +1967,7 @@ export interface CurrentlyPlayingObject {
    * @type {string}
    * @memberof CurrentlyPlayingObject
    */
-  currentlyPlayingType?: string;
+  currently_playing_type?: string;
   /**
    * Allows to update the user interface based on which playback actions are available within the current context.
    *
@@ -2135,19 +2135,19 @@ export interface DeviceObject {
    * @type {boolean}
    * @memberof DeviceObject
    */
-  isActive?: boolean;
+  is_active?: boolean;
   /**
    * If this device is currently in a private session.
    * @type {boolean}
    * @memberof DeviceObject
    */
-  isPrivateSession?: boolean;
+  is_private_session?: boolean;
   /**
    * Whether controlling this device is restricted. At present if this is "true" then no Web API commands will be accepted by this device.
    * @type {boolean}
    * @memberof DeviceObject
    */
-  isRestricted?: boolean;
+  is_restricted?: boolean;
   /**
    * A human-readable name for the device. Some devices have a name that the user can configure (e.g. \"Loudest speaker\") and some devices have a generic name associated with the manufacturer or device model.
    * @type {string}
@@ -2165,13 +2165,13 @@ export interface DeviceObject {
    * @type {number}
    * @memberof DeviceObject
    */
-  volumePercent?: number | null;
+  volume_percent?: number | null;
   /**
    * If this device can be used to set the volume.
    * @type {boolean}
    * @memberof DeviceObject
    */
-  supportsVolume?: boolean;
+  supports_volume?: boolean;
 }
 /**
  *
@@ -2184,7 +2184,7 @@ export interface DisallowsObject {
    * @type {boolean}
    * @memberof DisallowsObject
    */
-  interruptingPlayback?: boolean;
+  interrupting_playback?: boolean;
   /**
    * Pausing. Optional field.
    * @type {boolean}
@@ -2208,37 +2208,37 @@ export interface DisallowsObject {
    * @type {boolean}
    * @memberof DisallowsObject
    */
-  skippingNext?: boolean;
+  skipping_next?: boolean;
   /**
    * Skipping to the previous context. Optional field.
    * @type {boolean}
    * @memberof DisallowsObject
    */
-  skippingPrev?: boolean;
+  skipping_prev?: boolean;
   /**
    * Toggling repeat context flag. Optional field.
    * @type {boolean}
    * @memberof DisallowsObject
    */
-  togglingRepeatContext?: boolean;
+  toggling_repeat_context?: boolean;
   /**
    * Toggling shuffle flag. Optional field.
    * @type {boolean}
    * @memberof DisallowsObject
    */
-  togglingShuffle?: boolean;
+  toggling_shuffle?: boolean;
   /**
    * Toggling repeat track flag. Optional field.
    * @type {boolean}
    * @memberof DisallowsObject
    */
-  togglingRepeatTrack?: boolean;
+  toggling_repeat_track?: boolean;
   /**
    * Transfering playback between devices. Optional field.
    * @type {boolean}
    * @memberof DisallowsObject
    */
-  transferringPlayback?: boolean;
+  transferring_playback?: boolean;
 }
 /**
  *
@@ -2253,7 +2253,7 @@ export interface EpisodeBase {
    * @memberof EpisodeBase
    * @deprecated
    */
-  audioPreviewUrl: string | null;
+  audio_preview_url: string | null;
   /**
    * A description of the episode. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
    *
@@ -2267,14 +2267,14 @@ export interface EpisodeBase {
    * @type {string}
    * @memberof EpisodeBase
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * The episode length in milliseconds.
    *
    * @type {number}
    * @memberof EpisodeBase
    */
-  durationMs: number;
+  duration_ms: number;
   /**
    * Whether or not the episode has explicit content (true = yes it does; false = no it does not OR unknown).
    *
@@ -2288,7 +2288,7 @@ export interface EpisodeBase {
    * @type {ExternalUrlObject}
    * @memberof EpisodeBase
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the episode.
    *
@@ -2316,14 +2316,14 @@ export interface EpisodeBase {
    * @type {boolean}
    * @memberof EpisodeBase
    */
-  isExternallyHosted: boolean;
+  is_externally_hosted: boolean;
   /**
    * True if the episode is playable in the given market. Otherwise false.
    *
    * @type {boolean}
    * @memberof EpisodeBase
    */
-  isPlayable: boolean;
+  is_playable: boolean;
   /**
    * The language used in the episode, identified by a [ISO 639](https://en.wikipedia.org/wiki/ISO_639) code. This field is deprecated and might be removed in the future. Please use the `languages` field instead.
    *
@@ -2352,21 +2352,21 @@ export interface EpisodeBase {
    * @type {string}
    * @memberof EpisodeBase
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof EpisodeBase
    */
-  releaseDatePrecision: EpisodeBaseReleaseDatePrecisionEnum;
+  release_date_precision: EpisodeBaseReleaseDatePrecisionEnum;
   /**
    * The user's most recent position in the episode. Set if the supplied access token is a user token and has the scope 'user-read-playback-position'.
    *
    * @type {ResumePointObject}
    * @memberof EpisodeBase
    */
-  resumePoint?: ResumePointObject;
+  resume_point?: ResumePointObject;
   /**
    * The object type.
    *
@@ -2423,7 +2423,7 @@ export interface EpisodeObject {
    * @memberof EpisodeObject
    * @deprecated
    */
-  audioPreviewUrl: string | null;
+  audio_preview_url: string | null;
   /**
    * A description of the episode. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
    *
@@ -2437,14 +2437,14 @@ export interface EpisodeObject {
    * @type {string}
    * @memberof EpisodeObject
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * The episode length in milliseconds.
    *
    * @type {number}
    * @memberof EpisodeObject
    */
-  durationMs: number;
+  duration_ms: number;
   /**
    * Whether or not the episode has explicit content (true = yes it does; false = no it does not OR unknown).
    *
@@ -2458,7 +2458,7 @@ export interface EpisodeObject {
    * @type {ExternalUrlObject}
    * @memberof EpisodeObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the episode.
    *
@@ -2486,14 +2486,14 @@ export interface EpisodeObject {
    * @type {boolean}
    * @memberof EpisodeObject
    */
-  isExternallyHosted: boolean;
+  is_externally_hosted: boolean;
   /**
    * True if the episode is playable in the given market. Otherwise false.
    *
    * @type {boolean}
    * @memberof EpisodeObject
    */
-  isPlayable: boolean;
+  is_playable: boolean;
   /**
    * The language used in the episode, identified by a [ISO 639](https://en.wikipedia.org/wiki/ISO_639) code. This field is deprecated and might be removed in the future. Please use the `languages` field instead.
    *
@@ -2522,21 +2522,21 @@ export interface EpisodeObject {
    * @type {string}
    * @memberof EpisodeObject
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof EpisodeObject
    */
-  releaseDatePrecision: EpisodeObjectReleaseDatePrecisionEnum;
+  release_date_precision: EpisodeObjectReleaseDatePrecisionEnum;
   /**
    * The user's most recent position in the episode. Set if the supplied access token is a user token and has the scope 'user-read-playback-position'.
    *
    * @type {ResumePointObject}
    * @memberof EpisodeObject
    */
-  resumePoint?: ResumePointObject;
+  resume_point?: ResumePointObject;
   /**
    * The object type.
    *
@@ -2640,14 +2640,14 @@ export interface ExplicitContentSettingsObject {
    * @type {boolean}
    * @memberof ExplicitContentSettingsObject
    */
-  filterEnabled?: boolean;
+  filter_enabled?: boolean;
   /**
    * When `true`, indicates that the explicit content setting is locked and can't be changed by the user.
    *
    * @type {boolean}
    * @memberof ExplicitContentSettingsObject
    */
-  filterLocked?: boolean;
+  filter_locked?: boolean;
 }
 /**
  *
@@ -2909,7 +2909,7 @@ export interface InlineObject15 {
    * @type {string}
    * @memberof InlineObject15
    */
-  snapshotId?: string;
+  snapshot_id?: string;
 }
 /**
  *
@@ -3081,7 +3081,7 @@ export interface InlineObject9 {
    * @type {Array<AudioFeaturesObject>}
    * @memberof InlineObject9
    */
-  audioFeatures: Array<AudioFeaturesObject>;
+  audio_features: Array<AudioFeaturesObject>;
 }
 /**
  *
@@ -3095,7 +3095,7 @@ export interface LinkedTrackObject {
    * @type {ExternalUrlObject}
    * @memberof LinkedTrackObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the track.
    *
@@ -4105,7 +4105,7 @@ export interface PlayHistoryObject {
    * @type {string}
    * @memberof PlayHistoryObject
    */
-  playedAt?: string;
+  played_at?: string;
   /**
    * The context the track was played from.
    * @type {ContextObject}
@@ -4139,7 +4139,7 @@ export interface PlaylistObject {
    * @type {ExternalUrlObject}
    * @memberof PlaylistObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the playlist.
    *
@@ -4188,7 +4188,7 @@ export interface PlaylistObject {
    * @type {string}
    * @memberof PlaylistObject
    */
-  snapshotId?: string;
+  snapshot_id?: string;
   /**
    * The tracks of the playlist.
    *
@@ -4229,7 +4229,7 @@ export interface PlaylistOwnerObject {
    * @type {ExternalUrlObject}
    * @memberof PlaylistOwnerObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * A link to the Web API endpoint for this user.
    *
@@ -4264,7 +4264,7 @@ export interface PlaylistOwnerObject {
    * @type {string}
    * @memberof PlaylistOwnerObject
    */
-  displayName?: string | null;
+  display_name?: string | null;
 }
 
 /**
@@ -4288,21 +4288,21 @@ export interface PlaylistTrackObject {
    * @type {string}
    * @memberof PlaylistTrackObject
    */
-  addedAt?: string;
+  added_at?: string;
   /**
    * The Spotify user who added the track or episode. _**Note**: some very old playlists may return `null` in this field._
    *
    * @type {PlaylistUserObject}
    * @memberof PlaylistTrackObject
    */
-  addedBy?: PlaylistUserObject;
+  added_by?: PlaylistUserObject;
   /**
    * Whether this track or episode is a [local file](/documentation/web-api/concepts/playlists/#local-files) or not.
    *
    * @type {boolean}
    * @memberof PlaylistTrackObject
    */
-  isLocal?: boolean;
+  is_local?: boolean;
   /**
    *
    * @type {PlaylistTrackObjectTrack}
@@ -4351,7 +4351,7 @@ export interface PlaylistUserObject {
    * @type {ExternalUrlObject}
    * @memberof PlaylistUserObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * A link to the Web API endpoint for this user.
    *
@@ -4410,7 +4410,7 @@ export interface PrivateUserObject {
    * @type {string}
    * @memberof PrivateUserObject
    */
-  displayName?: string;
+  display_name?: string;
   /**
    * The user's email address, as entered by the user when creating their account. _**Important!** This email address is unverified; there is no proof that it actually belongs to the user._ _This field is only available when the current user has granted access to the [user-read-email](/documentation/web-api/concepts/scopes/#list-of-scopes) scope._
    *
@@ -4424,13 +4424,13 @@ export interface PrivateUserObject {
    * @type {ExplicitContentSettingsObject}
    * @memberof PrivateUserObject
    */
-  explicitContent?: ExplicitContentSettingsObject;
+  explicit_content?: ExplicitContentSettingsObject;
   /**
    * Known external URLs for this user.
    * @type {ExternalUrlObject}
    * @memberof PrivateUserObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * Information about the followers of the user.
    * @type {FollowersObject}
@@ -4491,14 +4491,14 @@ export interface PublicUserObject {
    * @type {string}
    * @memberof PublicUserObject
    */
-  displayName?: string | null;
+  display_name?: string | null;
   /**
    * Known public external URLs for this user.
    *
    * @type {ExternalUrlObject}
    * @memberof PublicUserObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * Information about the followers of this user.
    *
@@ -4563,7 +4563,7 @@ export interface QueueObject {
    * @type {QueueObjectCurrentlyPlaying}
    * @memberof QueueObject
    */
-  currentlyPlaying?: QueueObjectCurrentlyPlaying;
+  currently_playing?: QueueObjectCurrentlyPlaying;
   /**
    * The tracks or episodes in the queue. Can be empty.
    * @type {Array<QueueObjectQueueInner>}
@@ -4694,7 +4694,7 @@ export interface RemoveTracksPlaylistRequest {
    * @type {string}
    * @memberof RemoveTracksPlaylistRequest
    */
-  snapshotId?: string;
+  snapshot_id?: string;
 }
 /**
  *
@@ -4728,28 +4728,28 @@ export interface ReorderOrReplacePlaylistsTracksRequest {
    * @type {number}
    * @memberof ReorderOrReplacePlaylistsTracksRequest
    */
-  rangeStart?: number;
+  range_start?: number;
   /**
    * The position where the items should be inserted.<br/>To reorder the items to the end of the playlist, simply set _insert_before_ to the position after the last item.<br/>Examples:<br/>To reorder the first item to the last position in a playlist with 10 items, set _range_start_ to 0, and _insert_before_ to 10.<br/>To reorder the last item in a playlist with 10 items to the start of the playlist, set _range_start_ to 9, and _insert_before_ to 0.
    *
    * @type {number}
    * @memberof ReorderOrReplacePlaylistsTracksRequest
    */
-  insertBefore?: number;
+  insert_before?: number;
   /**
    * The amount of items to be reordered. Defaults to 1 if not set.<br/>The range of items to be reordered begins from the _range_start_ position, and includes the _range_length_ subsequent items.<br/>Example:<br/>To move the items at index 9-10 to the start of the playlist, _range_start_ is set to 9, and _range_length_ is set to 2.
    *
    * @type {number}
    * @memberof ReorderOrReplacePlaylistsTracksRequest
    */
-  rangeLength?: number;
+  range_length?: number;
   /**
    * The playlist's snapshot ID against which you want to make the changes.
    *
    * @type {string}
    * @memberof ReorderOrReplacePlaylistsTracksRequest
    */
-  snapshotId?: string;
+  snapshot_id?: string;
 }
 /**
  *
@@ -4763,14 +4763,14 @@ export interface ResumePointObject {
    * @type {boolean}
    * @memberof ResumePointObject
    */
-  fullyPlayed?: boolean;
+  fully_played?: boolean;
   /**
    * The user's most recent position in the episode in milliseconds.
    *
    * @type {number}
    * @memberof ResumePointObject
    */
-  resumePositionMs?: number;
+  resume_position_ms?: number;
 }
 /**
  *
@@ -4836,7 +4836,7 @@ export interface SaveTracksUserRequest {
    * @type {Array<SaveTracksUserRequestTimestampedIdsInner>}
    * @memberof SaveTracksUserRequest
    */
-  timestampedIds?: Array<SaveTracksUserRequestTimestampedIdsInner>;
+  timestamped_ids?: Array<SaveTracksUserRequestTimestampedIdsInner>;
 }
 /**
  *
@@ -4857,7 +4857,7 @@ export interface SaveTracksUserRequestTimestampedIdsInner {
    * @type {string}
    * @memberof SaveTracksUserRequestTimestampedIdsInner
    */
-  addedAt: string;
+  added_at: string;
 }
 /**
  *
@@ -4873,7 +4873,7 @@ export interface SavedAlbumObject {
    * @type {string}
    * @memberof SavedAlbumObject
    */
-  addedAt?: string;
+  added_at?: string;
   /**
    * Information about the album.
    * @type {AlbumObject}
@@ -4895,7 +4895,7 @@ export interface SavedAudiobookObject {
    * @type {string}
    * @memberof SavedAudiobookObject
    */
-  addedAt?: string;
+  added_at?: string;
   /**
    * Information about the audiobook.
    * @type {AudiobookObject}
@@ -4916,7 +4916,7 @@ export interface SavedEpisodeObject {
    * @type {string}
    * @memberof SavedEpisodeObject
    */
-  addedAt?: string;
+  added_at?: string;
   /**
    * Information about the episode.
    * @type {EpisodeObject}
@@ -4938,7 +4938,7 @@ export interface SavedShowObject {
    * @type {string}
    * @memberof SavedShowObject
    */
-  addedAt?: string;
+  added_at?: string;
   /**
    * Information about the show.
    * @type {SimplifiedShowObject}
@@ -4960,7 +4960,7 @@ export interface SavedTrackObject {
    * @type {string}
    * @memberof SavedTrackObject
    */
-  addedAt?: string;
+  added_at?: string;
   /**
    * Information about the track.
    * @type {TrackObject}
@@ -5009,7 +5009,7 @@ export interface SectionObject {
    * @type {number}
    * @memberof SectionObject
    */
-  tempoConfidence?: number;
+  tempo_confidence?: number;
   /**
    * The estimated overall key of the section. The values in this field ranging from 0 to 11 mapping to pitches using standard Pitch Class notation (E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on). If no key was detected, the value is -1.
    * @type {number}
@@ -5021,7 +5021,7 @@ export interface SectionObject {
    * @type {number}
    * @memberof SectionObject
    */
-  keyConfidence?: number;
+  key_confidence?: number;
   /**
    * Indicates the modality (major or minor) of a section, the type of scale from which its melodic content is derived. This field will contain a 0 for "minor", a 1 for "major", or a -1 for no result. Note that the major key (e.g. C major) could more likely be confused with the minor key at 3 semitones lower (e.g. A minor) as both keys carry the same pitches.
    * @type {number}
@@ -5033,19 +5033,19 @@ export interface SectionObject {
    * @type {number}
    * @memberof SectionObject
    */
-  modeConfidence?: number;
+  mode_confidence?: number;
   /**
    * An estimated time signature. The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). The time signature ranges from 3 to 7 indicating time signatures of "3/4", to "7/4".
    * @type {number}
    * @memberof SectionObject
    */
-  timeSignature?: number;
+  time_signature?: number;
   /**
    * The confidence, from 0.0 to 1.0, of the reliability of the `time_signature`. Sections with time signature changes may correspond to low values in this field.
    * @type {number}
    * @memberof SectionObject
    */
-  timeSignatureConfidence?: number;
+  time_signature_confidence?: number;
 }
 
 /**
@@ -5089,25 +5089,25 @@ export interface SegmentObject {
    * @type {number}
    * @memberof SegmentObject
    */
-  loudnessStart?: number;
+  loudness_start?: number;
   /**
    * The peak loudness of the segment in decibels (dB). Combined with `loudness_start` and `loudness_max_time`, these components can be used to describe the "attack" of the segment.
    * @type {number}
    * @memberof SegmentObject
    */
-  loudnessMax?: number;
+  loudness_max?: number;
   /**
    * The segment-relative offset of the segment peak loudness in seconds. Combined with `loudness_start` and `loudness_max`, these components can be used to desctibe the "attack" of the segment.
    * @type {number}
    * @memberof SegmentObject
    */
-  loudnessMaxTime?: number;
+  loudness_max_time?: number;
   /**
    * The offset loudness of the segment in decibels (dB). This value should be equivalent to the loudness_start of the following segment.
    * @type {number}
    * @memberof SegmentObject
    */
-  loudnessEnd?: number;
+  loudness_end?: number;
   /**
    * Pitch content is given by a “chroma” vector, corresponding to the 12 pitch classes C, C#, D to B, with values ranging from 0 to 1 that describe the relative dominance of every pitch in the chromatic scale. For example a C Major chord would likely be represented by large values of C, E and G (i.e. classes 0, 4, and 7).
    *
@@ -5144,7 +5144,7 @@ export interface ShowBase {
    * @type {Array<string>}
    * @memberof ShowBase
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * The copyright statements of the show.
    *
@@ -5165,7 +5165,7 @@ export interface ShowBase {
    * @type {string}
    * @memberof ShowBase
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * Whether or not the show has explicit content (true = yes it does; false = no it does not OR unknown).
    *
@@ -5179,7 +5179,7 @@ export interface ShowBase {
    * @type {ExternalUrlObject}
    * @memberof ShowBase
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the show.
    *
@@ -5207,7 +5207,7 @@ export interface ShowBase {
    * @type {boolean}
    * @memberof ShowBase
    */
-  isExternallyHosted: boolean;
+  is_externally_hosted: boolean;
   /**
    * A list of the languages used in the show, identified by their [ISO 639](https://en.wikipedia.org/wiki/ISO_639) code.
    *
@@ -5221,7 +5221,7 @@ export interface ShowBase {
    * @type {string}
    * @memberof ShowBase
    */
-  mediaType: string;
+  media_type: string;
   /**
    * The name of the episode.
    *
@@ -5256,7 +5256,7 @@ export interface ShowBase {
    * @type {number}
    * @memberof ShowBase
    */
-  totalEpisodes: number;
+  total_episodes: number;
 }
 
 /**
@@ -5280,7 +5280,7 @@ export interface ShowObject {
    * @type {Array<string>}
    * @memberof ShowObject
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * The copyright statements of the show.
    *
@@ -5301,7 +5301,7 @@ export interface ShowObject {
    * @type {string}
    * @memberof ShowObject
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * Whether or not the show has explicit content (true = yes it does; false = no it does not OR unknown).
    *
@@ -5315,7 +5315,7 @@ export interface ShowObject {
    * @type {ExternalUrlObject}
    * @memberof ShowObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the show.
    *
@@ -5343,7 +5343,7 @@ export interface ShowObject {
    * @type {boolean}
    * @memberof ShowObject
    */
-  isExternallyHosted: boolean;
+  is_externally_hosted: boolean;
   /**
    * A list of the languages used in the show, identified by their [ISO 639](https://en.wikipedia.org/wiki/ISO_639) code.
    *
@@ -5357,7 +5357,7 @@ export interface ShowObject {
    * @type {string}
    * @memberof ShowObject
    */
-  mediaType: string;
+  media_type: string;
   /**
    * The name of the episode.
    *
@@ -5392,7 +5392,7 @@ export interface ShowObject {
    * @type {number}
    * @memberof ShowObject
    */
-  totalEpisodes: number;
+  total_episodes: number;
   /**
    * The episodes of the show.
    *
@@ -5423,27 +5423,27 @@ export interface SimplifiedAlbumObject {
    * @type {string}
    * @memberof SimplifiedAlbumObject
    */
-  albumType: SimplifiedAlbumObjectAlbumTypeEnum;
+  album_type: SimplifiedAlbumObjectAlbumTypeEnum;
   /**
    * The number of tracks in the album.
    * @type {number}
    * @memberof SimplifiedAlbumObject
    */
-  totalTracks: number;
+  total_tracks: number;
   /**
    * The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._
    *
    * @type {Array<string>}
    * @memberof SimplifiedAlbumObject
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * Known external URLs for this album.
    *
    * @type {ExternalUrlObject}
    * @memberof SimplifiedAlbumObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the album.
    *
@@ -5478,14 +5478,14 @@ export interface SimplifiedAlbumObject {
    * @type {string}
    * @memberof SimplifiedAlbumObject
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof SimplifiedAlbumObject
    */
-  releaseDatePrecision: SimplifiedAlbumObjectReleaseDatePrecisionEnum;
+  release_date_precision: SimplifiedAlbumObjectReleaseDatePrecisionEnum;
   /**
    * Included in the response when a content restriction is applied.
    *
@@ -5559,7 +5559,7 @@ export interface SimplifiedArtistObject {
    * @type {ExternalUrlObject}
    * @memberof SimplifiedArtistObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the artist.
    *
@@ -5625,7 +5625,7 @@ export interface SimplifiedAudiobookObject {
    * @type {Array<string>}
    * @memberof SimplifiedAudiobookObject
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * The copyright statements of the audiobook.
    *
@@ -5646,7 +5646,7 @@ export interface SimplifiedAudiobookObject {
    * @type {string}
    * @memberof SimplifiedAudiobookObject
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * The edition of the audiobook.
    *
@@ -5667,7 +5667,7 @@ export interface SimplifiedAudiobookObject {
    * @type {ExternalUrlObject}
    * @memberof SimplifiedAudiobookObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the audiobook.
    *
@@ -5702,7 +5702,7 @@ export interface SimplifiedAudiobookObject {
    * @type {string}
    * @memberof SimplifiedAudiobookObject
    */
-  mediaType: string;
+  media_type: string;
   /**
    * The name of the audiobook.
    *
@@ -5744,7 +5744,7 @@ export interface SimplifiedAudiobookObject {
    * @type {number}
    * @memberof SimplifiedAudiobookObject
    */
-  totalChapters: number;
+  total_chapters: number;
 }
 
 /**
@@ -5769,21 +5769,21 @@ export interface SimplifiedChapterObject {
    * @memberof SimplifiedChapterObject
    * @deprecated
    */
-  audioPreviewUrl: string | null;
+  audio_preview_url: string | null;
   /**
    * A list of the countries in which the chapter can be played, identified by their [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
    *
    * @type {Array<string>}
    * @memberof SimplifiedChapterObject
    */
-  availableMarkets?: Array<string>;
+  available_markets?: Array<string>;
   /**
    * The number of the chapter
    *
    * @type {number}
    * @memberof SimplifiedChapterObject
    */
-  chapterNumber: number;
+  chapter_number: number;
   /**
    * A description of the chapter. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
    *
@@ -5797,14 +5797,14 @@ export interface SimplifiedChapterObject {
    * @type {string}
    * @memberof SimplifiedChapterObject
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * The chapter length in milliseconds.
    *
    * @type {number}
    * @memberof SimplifiedChapterObject
    */
-  durationMs: number;
+  duration_ms: number;
   /**
    * Whether or not the chapter has explicit content (true = yes it does; false = no it does not OR unknown).
    *
@@ -5818,7 +5818,7 @@ export interface SimplifiedChapterObject {
    * @type {ExternalUrlObject}
    * @memberof SimplifiedChapterObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the chapter.
    *
@@ -5846,7 +5846,7 @@ export interface SimplifiedChapterObject {
    * @type {boolean}
    * @memberof SimplifiedChapterObject
    */
-  isPlayable: boolean;
+  is_playable: boolean;
   /**
    * A list of the languages used in the chapter, identified by their [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639) code.
    *
@@ -5867,21 +5867,21 @@ export interface SimplifiedChapterObject {
    * @type {string}
    * @memberof SimplifiedChapterObject
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof SimplifiedChapterObject
    */
-  releaseDatePrecision: SimplifiedChapterObjectReleaseDatePrecisionEnum;
+  release_date_precision: SimplifiedChapterObjectReleaseDatePrecisionEnum;
   /**
    * The user's most recent position in the chapter. Set if the supplied access token is a user token and has the scope 'user-read-playback-position'.
    *
    * @type {ResumePointObject}
    * @memberof SimplifiedChapterObject
    */
-  resumePoint?: ResumePointObject;
+  resume_point?: ResumePointObject;
   /**
    * The object type.
    *
@@ -5938,7 +5938,7 @@ export interface SimplifiedEpisodeObject {
    * @memberof SimplifiedEpisodeObject
    * @deprecated
    */
-  audioPreviewUrl: string | null;
+  audio_preview_url: string | null;
   /**
    * A description of the episode. HTML tags are stripped away from this field, use `html_description` field in case HTML tags are needed.
    *
@@ -5952,14 +5952,14 @@ export interface SimplifiedEpisodeObject {
    * @type {string}
    * @memberof SimplifiedEpisodeObject
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * The episode length in milliseconds.
    *
    * @type {number}
    * @memberof SimplifiedEpisodeObject
    */
-  durationMs: number;
+  duration_ms: number;
   /**
    * Whether or not the episode has explicit content (true = yes it does; false = no it does not OR unknown).
    *
@@ -5973,7 +5973,7 @@ export interface SimplifiedEpisodeObject {
    * @type {ExternalUrlObject}
    * @memberof SimplifiedEpisodeObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the episode.
    *
@@ -6001,14 +6001,14 @@ export interface SimplifiedEpisodeObject {
    * @type {boolean}
    * @memberof SimplifiedEpisodeObject
    */
-  isExternallyHosted: boolean;
+  is_externally_hosted: boolean;
   /**
    * True if the episode is playable in the given market. Otherwise false.
    *
    * @type {boolean}
    * @memberof SimplifiedEpisodeObject
    */
-  isPlayable: boolean;
+  is_playable: boolean;
   /**
    * The language used in the episode, identified by a [ISO 639](https://en.wikipedia.org/wiki/ISO_639) code. This field is deprecated and might be removed in the future. Please use the `languages` field instead.
    *
@@ -6037,21 +6037,21 @@ export interface SimplifiedEpisodeObject {
    * @type {string}
    * @memberof SimplifiedEpisodeObject
    */
-  releaseDate: string;
+  release_date: string;
   /**
    * The precision with which `release_date` value is known.
    *
    * @type {string}
    * @memberof SimplifiedEpisodeObject
    */
-  releaseDatePrecision: SimplifiedEpisodeObjectReleaseDatePrecisionEnum;
+  release_date_precision: SimplifiedEpisodeObjectReleaseDatePrecisionEnum;
   /**
    * The user's most recent position in the episode. Set if the supplied access token is a user token and has the scope 'user-read-playback-position'.
    *
    * @type {ResumePointObject}
    * @memberof SimplifiedEpisodeObject
    */
-  resumePoint?: ResumePointObject;
+  resume_point?: ResumePointObject;
   /**
    * The object type.
    *
@@ -6121,7 +6121,7 @@ export interface SimplifiedPlaylistObject {
    * @type {ExternalUrlObject}
    * @memberof SimplifiedPlaylistObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the playlist.
    *
@@ -6170,7 +6170,7 @@ export interface SimplifiedPlaylistObject {
    * @type {string}
    * @memberof SimplifiedPlaylistObject
    */
-  snapshotId?: string;
+  snapshot_id?: string;
   /**
    * A collection containing a link ( `href` ) to the Web API endpoint where full details of the playlist's tracks can be retrieved, along with the `total` number of tracks in the playlist. Note, a track object may be `null`. This can happen if a track is no longer available.
    *
@@ -6205,7 +6205,7 @@ export interface SimplifiedShowObject {
    * @type {Array<string>}
    * @memberof SimplifiedShowObject
    */
-  availableMarkets: Array<string>;
+  available_markets: Array<string>;
   /**
    * The copyright statements of the show.
    *
@@ -6226,7 +6226,7 @@ export interface SimplifiedShowObject {
    * @type {string}
    * @memberof SimplifiedShowObject
    */
-  htmlDescription: string;
+  html_description: string;
   /**
    * Whether or not the show has explicit content (true = yes it does; false = no it does not OR unknown).
    *
@@ -6240,7 +6240,7 @@ export interface SimplifiedShowObject {
    * @type {ExternalUrlObject}
    * @memberof SimplifiedShowObject
    */
-  externalUrls: ExternalUrlObject;
+  external_urls: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the show.
    *
@@ -6268,7 +6268,7 @@ export interface SimplifiedShowObject {
    * @type {boolean}
    * @memberof SimplifiedShowObject
    */
-  isExternallyHosted: boolean;
+  is_externally_hosted: boolean;
   /**
    * A list of the languages used in the show, identified by their [ISO 639](https://en.wikipedia.org/wiki/ISO_639) code.
    *
@@ -6282,7 +6282,7 @@ export interface SimplifiedShowObject {
    * @type {string}
    * @memberof SimplifiedShowObject
    */
-  mediaType: string;
+  media_type: string;
   /**
    * The name of the episode.
    *
@@ -6317,7 +6317,7 @@ export interface SimplifiedShowObject {
    * @type {number}
    * @memberof SimplifiedShowObject
    */
-  totalEpisodes: number;
+  total_episodes: number;
 }
 
 /**
@@ -6347,19 +6347,19 @@ export interface SimplifiedTrackObject {
    * @type {Array<string>}
    * @memberof SimplifiedTrackObject
    */
-  availableMarkets?: Array<string>;
+  available_markets?: Array<string>;
   /**
    * The disc number (usually `1` unless the album consists of more than one disc).
    * @type {number}
    * @memberof SimplifiedTrackObject
    */
-  discNumber?: number;
+  disc_number?: number;
   /**
    * The track length in milliseconds.
    * @type {number}
    * @memberof SimplifiedTrackObject
    */
-  durationMs?: number;
+  duration_ms?: number;
   /**
    * Whether or not the track has explicit lyrics ( `true` = yes it does; `false` = no it does not OR unknown).
    * @type {boolean}
@@ -6372,7 +6372,7 @@ export interface SimplifiedTrackObject {
    * @type {ExternalUrlObject}
    * @memberof SimplifiedTrackObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the track.
    * @type {string}
@@ -6392,13 +6392,13 @@ export interface SimplifiedTrackObject {
    * @type {boolean}
    * @memberof SimplifiedTrackObject
    */
-  isPlayable?: boolean;
+  is_playable?: boolean;
   /**
    * Part of the response when [Track Relinking](/documentation/web-api/concepts/track-relinking/) is applied and is only part of the response if the track linking, in fact, exists. The requested track has been replaced with a different track. The track in the `linked_from` object contains information about the originally requested track.
    * @type {LinkedTrackObject}
    * @memberof SimplifiedTrackObject
    */
-  linkedFrom?: LinkedTrackObject;
+  linked_from?: LinkedTrackObject;
   /**
    * Included in the response when a content restriction is applied.
    *
@@ -6419,14 +6419,14 @@ export interface SimplifiedTrackObject {
    * @memberof SimplifiedTrackObject
    * @deprecated
    */
-  previewUrl?: string | null;
+  preview_url?: string | null;
   /**
    * The number of the track. If an album has several discs, the track number is the number on the specified disc.
    *
    * @type {number}
    * @memberof SimplifiedTrackObject
    */
-  trackNumber?: number;
+  track_number?: number;
   /**
    * The object type: "track".
    *
@@ -6447,7 +6447,7 @@ export interface SimplifiedTrackObject {
    * @type {boolean}
    * @memberof SimplifiedTrackObject
    */
-  isLocal?: boolean;
+  is_local?: boolean;
 }
 /**
  *
@@ -6464,7 +6464,7 @@ export interface StartAUsersPlaybackRequest {
    * @type {string}
    * @memberof StartAUsersPlaybackRequest
    */
-  contextUri?: string;
+  context_uri?: string;
   /**
    * Optional. A JSON array of the Spotify track URIs to play.
    * For example: `{"uris": ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]}`
@@ -6488,7 +6488,7 @@ export interface StartAUsersPlaybackRequest {
    * @type {number}
    * @memberof StartAUsersPlaybackRequest
    */
-  positionMs?: number;
+  position_ms?: number;
 }
 /**
  *
@@ -6541,21 +6541,21 @@ export interface TrackObject {
    * @type {Array<string>}
    * @memberof TrackObject
    */
-  availableMarkets?: Array<string>;
+  available_markets?: Array<string>;
   /**
    * The disc number (usually `1` unless the album consists of more than one disc).
    *
    * @type {number}
    * @memberof TrackObject
    */
-  discNumber?: number;
+  disc_number?: number;
   /**
    * The track length in milliseconds.
    *
    * @type {number}
    * @memberof TrackObject
    */
-  durationMs?: number;
+  duration_ms?: number;
   /**
    * Whether or not the track has explicit lyrics ( `true` = yes it does; `false` = no it does not OR unknown).
    *
@@ -6569,14 +6569,14 @@ export interface TrackObject {
    * @type {ExternalIdObject}
    * @memberof TrackObject
    */
-  externalIds?: ExternalIdObject;
+  external_ids?: ExternalIdObject;
   /**
    * Known external URLs for this track.
    *
    * @type {ExternalUrlObject}
    * @memberof TrackObject
    */
-  externalUrls?: ExternalUrlObject;
+  external_urls?: ExternalUrlObject;
   /**
    * A link to the Web API endpoint providing full details of the track.
    *
@@ -6597,13 +6597,13 @@ export interface TrackObject {
    * @type {boolean}
    * @memberof TrackObject
    */
-  isPlayable?: boolean;
+  is_playable?: boolean;
   /**
    * Part of the response when [Track Relinking](/documentation/web-api/concepts/track-relinking) is applied, and the requested track has been replaced with different track. The track in the `linked_from` object contains information about the originally requested track.
    * @type {LinkedTrackObject}
    * @memberof TrackObject
    */
-  linkedFrom?: LinkedTrackObject;
+  linked_from?: LinkedTrackObject;
   /**
    * Included in the response when a content restriction is applied.
    *
@@ -6632,14 +6632,14 @@ export interface TrackObject {
    * @memberof TrackObject
    * @deprecated
    */
-  previewUrl?: string | null;
+  preview_url?: string | null;
   /**
    * The number of the track. If an album has several discs, the track number is the number on the specified disc.
    *
    * @type {number}
    * @memberof TrackObject
    */
-  trackNumber?: number;
+  track_number?: number;
   /**
    * The object type: "track".
    *
@@ -6660,7 +6660,7 @@ export interface TrackObject {
    * @type {boolean}
    * @memberof TrackObject
    */
-  isLocal?: boolean;
+  is_local?: boolean;
 }
 
 /**
@@ -6705,7 +6705,7 @@ export interface TransferAUsersPlaybackRequest {
    * @type {Array<string>}
    * @memberof TransferAUsersPlaybackRequest
    */
-  deviceIds: Array<string>;
+  device_ids: Array<string>;
   /**
    * **true**: ensure playback happens on new device.<br/>**false** or not provided: keep the current playback state.
    *
