@@ -6,9 +6,9 @@ import {
   refreshCachedAccessToken,
   toCachableAccessToken,
 } from "../token/AccessTokenHelpers.js";
-import type AuthStrategy from "./AuthStrategy.js";
+import type { SpotifyAuth } from "./AuthStrategy.js";
 
-export default class ImplicitGrantStrategy implements AuthStrategy {
+export default class ImplicitGrantStrategy implements SpotifyAuth {
   private static readonly cacheKey = "spotify-sdk:ImplicitGrantStrategy:token";
   private get cache(): CachingStrategy {
     return this.configuration.cachingStrategy;

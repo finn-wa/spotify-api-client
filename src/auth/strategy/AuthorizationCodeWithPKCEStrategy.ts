@@ -9,14 +9,14 @@ import {
   refreshCachedAccessToken,
   toCachableAccessToken,
 } from "../token/AccessTokenHelpers.js";
-import type AuthStrategy from "./AuthStrategy.js";
+import type { SpotifyAuth } from "./AuthStrategy.js";
 
 interface CachedVerifier extends Cachable {
   verifier: string;
   expiresOnAccess: boolean;
 }
 
-export default class AuthorizationCodeWithPKCEStrategy implements AuthStrategy {
+export default class AuthorizationCodeWithPKCEStrategy implements SpotifyAuth {
   private static readonly cacheKey =
     "spotify-sdk:AuthorizationCodeWithPKCEStrategy:token";
 

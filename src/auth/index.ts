@@ -3,7 +3,7 @@ import LocalStorageCachingStrategy from "./caching/LocalStorageCachingStrategy";
 import { DocumentLocationRedirectionStrategy } from "./redirection/DocumentLocationRedirectionStrategy";
 import type { SpotifyAuthConfig } from "./SpotifyAuthConfig";
 import AuthorizationCodeWithPKCEStrategy from "./strategy/AuthorizationCodeWithPKCEStrategy";
-import type AuthStrategy from "./strategy/AuthStrategy";
+import type { SpotifyAuth } from "./strategy/AuthStrategy";
 import ClientCredentialsStrategy from "./strategy/ClientCredentialsStrategy";
 import ImplicitGrantStrategy from "./strategy/ImplicitGrantStrategy";
 import ProvidedAccessTokenStrategy from "./strategy/ProvidedAccessTokenStrategy";
@@ -33,7 +33,7 @@ export function spotifyAuthViaCodeWithPkce(
     redirectUri: string;
     scopes: string[];
   },
-): AuthStrategy {
+): SpotifyAuth {
   return new AuthorizationCodeWithPKCEStrategy(
     config.clientId,
     config.redirectUri,
@@ -48,7 +48,7 @@ export function spotifyAuthViaClientCredentials(
     clientSecret: string;
     scopes: string[];
   },
-): AuthStrategy {
+): SpotifyAuth {
   return new ClientCredentialsStrategy(
     config.clientId,
     config.clientSecret,
@@ -63,7 +63,7 @@ export function spotifyAuthViaImplicitGrant(
     redirectUri: string;
     scopes: string[];
   },
-): AuthStrategy {
+): SpotifyAuth {
   return new ImplicitGrantStrategy(
     config.clientId,
     config.redirectUri,
@@ -77,17 +77,19 @@ export function spotifyAuthViaImplicitGrant(
  * The authentication strategy will automatically renew the token when it expires.
  * Designed to allow a browser-based-app to post the access token to the server and use it from there.
  */
-export function spotifyAuthViaProvidedAccessToken(config: {
-  clientId: string;
-  accessToken: AccessToken;
-  refreshTokenAction?: (
-    clientId: string,
-    token: AccessToken,
-  ) => Promise<AccessToken>;
-}) {
+export function spotifyAuthViaProvidedAccessToken(
+  accessToken: AccessToken,
+  config: {
+    clientId: string;
+    refreshTokenAction?: (
+      clientId: string,
+      token: AccessToken,
+    ) => Promise<AccessToken>;
+  },
+) {
   return new ProvidedAccessTokenStrategy(
     config.clientId,
-    config.accessToken,
+    accessToken,
     config.refreshTokenAction,
   );
 }

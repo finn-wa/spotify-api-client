@@ -1,7 +1,6 @@
-import type { SpotifyAuthConfig } from "../SpotifyAuthConfig";
 import { type AccessToken } from "../token/AccessToken";
 
-export default interface AuthStrategy {
+export interface SpotifyAuth {
   getOrCreateAccessToken(): Promise<AccessToken>;
   getAccessToken(): Promise<AccessToken | null>;
   removeAccessToken(): void;

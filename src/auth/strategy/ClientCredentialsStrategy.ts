@@ -2,9 +2,9 @@ import type { CachingStrategy } from "../caching/CachingStrategy.js";
 import type { SpotifyAuthConfig } from "../SpotifyAuthConfig.js";
 import type { AccessToken } from "../token/AccessToken.js";
 import { toCachableAccessToken } from "../token/AccessTokenHelpers.js";
-import type AuthStrategy from "./AuthStrategy.js";
+import type { SpotifyAuth } from "./AuthStrategy.js";
 
-export default class ClientCredentialsStrategy implements AuthStrategy {
+export default class ClientCredentialsStrategy implements SpotifyAuth {
   private static readonly cacheKey =
     "spotify-sdk:ClientCredentialsStrategy:token";
 

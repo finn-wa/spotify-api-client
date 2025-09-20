@@ -3,7 +3,7 @@ import {
   calculateAccessTokenExpiry,
   refreshCachedAccessToken,
 } from "../token/AccessTokenHelpers.js";
-import type AuthStrategy from "./AuthStrategy.js";
+import type { SpotifyAuth } from "./AuthStrategy.js";
 
 /**
  * This strategy is used when you already have an access token and want to use it.
@@ -13,7 +13,7 @@ import type AuthStrategy from "./AuthStrategy.js";
  * @param {string} clientId - Spotify application client id.
  * @param {string} accessToken - The access token returned from a client side Authorization Code with PKCE flow.
  */
-export default class ProvidedAccessTokenStrategy implements AuthStrategy {
+export default class ProvidedAccessTokenStrategy implements SpotifyAuth {
   constructor(
     protected clientId: string,
     protected accessToken: AccessToken,
