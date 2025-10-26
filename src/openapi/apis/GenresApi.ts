@@ -12,7 +12,10 @@
  * Do not edit the class manually.
  */
 
-import type { InlineObject, InlineObject11 } from "../models/index";
+import type {
+  GetAnAlbum401Response,
+  GetRecommendationGenres200Response,
+} from "../models/index";
 import * as runtime from "../runtime";
 
 /**
@@ -26,7 +29,7 @@ export class GenresApi extends runtime.BaseAPI {
    */
   async getRecommendationGenresRaw(
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject11>> {
+  ): Promise<runtime.ApiResponse<GetRecommendationGenres200Response>> {
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -61,7 +64,7 @@ export class GenresApi extends runtime.BaseAPI {
    */
   async getRecommendationGenres(
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject11> {
+  ): Promise<GetRecommendationGenres200Response> {
     const response = await this.getRecommendationGenresRaw(initOverrides);
     return await response.value();
   }

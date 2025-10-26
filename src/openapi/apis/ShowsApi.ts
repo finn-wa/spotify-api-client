@@ -13,8 +13,8 @@
  */
 
 import type {
-  InlineObject,
-  InlineObject13,
+  GetAnAlbum401Response,
+  GetMultipleShows200Response,
   PagingSavedShowObject,
   PagingSimplifiedEpisodeObject,
   SaveShowsUserRequest,
@@ -266,7 +266,7 @@ export class ShowsApi extends runtime.BaseAPI {
   async getMultipleShowsRaw(
     requestParameters: ShowsApiGetMultipleShowsRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject13>> {
+  ): Promise<runtime.ApiResponse<GetMultipleShows200Response>> {
     if (requestParameters["ids"] == null) {
       throw new runtime.RequiredError(
         "ids",
@@ -316,7 +316,7 @@ export class ShowsApi extends runtime.BaseAPI {
   async getMultipleShows(
     requestParameters: ShowsApiGetMultipleShowsRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject13> {
+  ): Promise<GetMultipleShows200Response> {
     const response = await this.getMultipleShowsRaw(
       requestParameters,
       initOverrides,

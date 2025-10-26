@@ -14,9 +14,9 @@
 
 import type {
   AlbumObject,
-  InlineObject,
-  InlineObject1,
-  InlineObject5,
+  GetAnAlbum401Response,
+  GetMultipleAlbums200Response,
+  GetNewReleases200Response,
   PagingArtistDiscographyAlbumObject,
   PagingSavedAlbumObject,
   PagingSimplifiedTrackObject,
@@ -358,7 +358,7 @@ export class AlbumsApi extends runtime.BaseAPI {
   async getMultipleAlbumsRaw(
     requestParameters: AlbumsApiGetMultipleAlbumsRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject1>> {
+  ): Promise<runtime.ApiResponse<GetMultipleAlbums200Response>> {
     if (requestParameters["ids"] == null) {
       throw new runtime.RequiredError(
         "ids",
@@ -408,7 +408,7 @@ export class AlbumsApi extends runtime.BaseAPI {
   async getMultipleAlbums(
     requestParameters: AlbumsApiGetMultipleAlbumsRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject1> {
+  ): Promise<GetMultipleAlbums200Response> {
     const response = await this.getMultipleAlbumsRaw(
       requestParameters,
       initOverrides,
@@ -423,7 +423,7 @@ export class AlbumsApi extends runtime.BaseAPI {
   async getNewReleasesRaw(
     requestParameters: AlbumsApiGetNewReleasesRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject5>> {
+  ): Promise<runtime.ApiResponse<GetNewReleases200Response>> {
     const queryParameters: any = {};
 
     if (requestParameters["limit"] != null) {
@@ -466,7 +466,7 @@ export class AlbumsApi extends runtime.BaseAPI {
   async getNewReleases(
     requestParameters: AlbumsApiGetNewReleasesRequest = {},
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject5> {
+  ): Promise<GetNewReleases200Response> {
     const response = await this.getNewReleasesRaw(
       requestParameters,
       initOverrides,

@@ -12,7 +12,10 @@
  * Do not edit the class manually.
  */
 
-import type { InlineObject, InlineObject16 } from "../models/index";
+import type {
+  GetAnAlbum401Response,
+  GetAvailableMarkets200Response,
+} from "../models/index";
 import * as runtime from "../runtime";
 
 /**
@@ -25,7 +28,7 @@ export class MarketsApi extends runtime.BaseAPI {
    */
   async getAvailableMarketsRaw(
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject16>> {
+  ): Promise<runtime.ApiResponse<GetAvailableMarkets200Response>> {
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -59,7 +62,7 @@ export class MarketsApi extends runtime.BaseAPI {
    */
   async getAvailableMarkets(
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject16> {
+  ): Promise<GetAvailableMarkets200Response> {
     const response = await this.getAvailableMarketsRaw(initOverrides);
     return await response.value();
   }

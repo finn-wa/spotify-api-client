@@ -14,8 +14,8 @@
 
 import type {
   CategoryObject,
-  InlineObject,
-  InlineObject6,
+  GetAnAlbum401Response,
+  GetCategories200Response,
   PagingFeaturedPlaylistObject,
 } from "../models/index";
 import * as runtime from "../runtime";
@@ -184,7 +184,7 @@ export class CategoriesApi extends runtime.BaseAPI {
   async getCategoriesRaw(
     requestParameters: CategoriesApiGetCategoriesRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject6>> {
+  ): Promise<runtime.ApiResponse<GetCategories200Response>> {
     const queryParameters: any = {};
 
     if (requestParameters["locale"] != null) {
@@ -231,7 +231,7 @@ export class CategoriesApi extends runtime.BaseAPI {
   async getCategories(
     requestParameters: CategoriesApiGetCategoriesRequest = {},
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject6> {
+  ): Promise<GetCategories200Response> {
     const response = await this.getCategoriesRaw(
       requestParameters,
       initOverrides,

@@ -14,8 +14,8 @@
 
 import type {
   ChapterObject,
-  InlineObject,
-  InlineObject3,
+  GetAnAlbum401Response,
+  GetSeveralChapters200Response,
   PagingSimplifiedChapterObject,
 } from "../models/index";
 import * as runtime from "../runtime";
@@ -186,7 +186,7 @@ export class ChaptersApi extends runtime.BaseAPI {
   async getSeveralChaptersRaw(
     requestParameters: ChaptersApiGetSeveralChaptersRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject3>> {
+  ): Promise<runtime.ApiResponse<GetSeveralChapters200Response>> {
     if (requestParameters["ids"] == null) {
       throw new runtime.RequiredError(
         "ids",
@@ -236,7 +236,7 @@ export class ChaptersApi extends runtime.BaseAPI {
   async getSeveralChapters(
     requestParameters: ChaptersApiGetSeveralChaptersRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject3> {
+  ): Promise<GetSeveralChapters200Response> {
     const response = await this.getSeveralChaptersRaw(
       requestParameters,
       initOverrides,

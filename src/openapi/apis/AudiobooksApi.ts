@@ -14,8 +14,8 @@
 
 import type {
   AudiobookObject,
-  InlineObject,
-  InlineObject2,
+  GetAnAlbum401Response,
+  GetMultipleAudiobooks200Response,
   PagingSavedAudiobookObject,
   PagingSimplifiedChapterObject,
 } from "../models/index";
@@ -265,7 +265,7 @@ export class AudiobooksApi extends runtime.BaseAPI {
   async getMultipleAudiobooksRaw(
     requestParameters: AudiobooksApiGetMultipleAudiobooksRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject2>> {
+  ): Promise<runtime.ApiResponse<GetMultipleAudiobooks200Response>> {
     if (requestParameters["ids"] == null) {
       throw new runtime.RequiredError(
         "ids",
@@ -315,7 +315,7 @@ export class AudiobooksApi extends runtime.BaseAPI {
   async getMultipleAudiobooks(
     requestParameters: AudiobooksApiGetMultipleAudiobooksRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject2> {
+  ): Promise<GetMultipleAudiobooks200Response> {
     const response = await this.getMultipleAudiobooksRaw(
       requestParameters,
       initOverrides,

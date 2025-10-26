@@ -16,8 +16,8 @@ import type {
   CurrentlyPlayingContextObject,
   CurrentlyPlayingObject,
   CursorPagingPlayHistoryObject,
-  InlineObject,
-  InlineObject4,
+  GetAnAlbum401Response,
+  GetAUsersAvailableDevices200Response,
   QueueObject,
   StartAUsersPlaybackRequest,
   TransferAUsersPlaybackRequest,
@@ -157,7 +157,7 @@ export class PlayerApi extends runtime.BaseAPI {
    */
   async getAUsersAvailableDevicesRaw(
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject4>> {
+  ): Promise<runtime.ApiResponse<GetAUsersAvailableDevices200Response>> {
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -191,7 +191,7 @@ export class PlayerApi extends runtime.BaseAPI {
    */
   async getAUsersAvailableDevices(
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject4> {
+  ): Promise<GetAUsersAvailableDevices200Response> {
     const response = await this.getAUsersAvailableDevicesRaw(initOverrides);
     return await response.value();
   }

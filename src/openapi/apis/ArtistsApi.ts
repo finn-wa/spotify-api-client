@@ -15,10 +15,12 @@
 import type {
   ArtistObject,
   FollowArtistsUsersRequest,
-  InlineObject,
-  InlineObject7,
-  InlineObject8,
-  InlineObject12,
+  FollowTypeEnum,
+  GetAnAlbum401Response,
+  GetAnArtistsTopTracks200Response,
+  GetFollowed200Response,
+  GetFollowTypeEnum,
+  GetMultipleArtists200Response,
   PagingArtistDiscographyAlbumObject,
   PagingArtistObject,
   UnfollowArtistsUsersRequest,
@@ -26,12 +28,12 @@ import type {
 import * as runtime from "../runtime";
 
 export interface ArtistsApiCheckCurrentUserFollowsRequest {
-  type: CheckCurrentUserFollowsTypeEnum;
+  type: FollowTypeEnum;
   ids: string;
 }
 
 export interface ArtistsApiFollowArtistsUsersOperationRequest {
-  type: FollowArtistsUsersOperationTypeEnum;
+  type: FollowTypeEnum;
   ids: string;
   followArtistsUsersRequest?: FollowArtistsUsersRequest;
 }
@@ -58,7 +60,7 @@ export interface ArtistsApiGetAnArtistsTopTracksRequest {
 }
 
 export interface ArtistsApiGetFollowedRequest {
-  type: GetFollowedTypeEnum;
+  type: GetFollowTypeEnum;
   after?: string;
   limit?: number;
 }
@@ -74,7 +76,7 @@ export interface ArtistsApiGetUsersTopArtistsRequest {
 }
 
 export interface ArtistsApiUnfollowArtistsUsersOperationRequest {
-  type: UnfollowArtistsUsersOperationTypeEnum;
+  type: FollowTypeEnum;
   ids: string;
   unfollowArtistsUsersRequest?: UnfollowArtistsUsersRequest;
 }
@@ -372,7 +374,7 @@ export class ArtistsApi extends runtime.BaseAPI {
   async getAnArtistsRelatedArtistsRaw(
     requestParameters: ArtistsApiGetAnArtistsRelatedArtistsRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject8>> {
+  ): Promise<runtime.ApiResponse<GetMultipleArtists200Response>> {
     if (requestParameters["id"] == null) {
       throw new runtime.RequiredError(
         "id",
@@ -419,7 +421,7 @@ export class ArtistsApi extends runtime.BaseAPI {
   async getAnArtistsRelatedArtists(
     requestParameters: ArtistsApiGetAnArtistsRelatedArtistsRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject8> {
+  ): Promise<GetMultipleArtists200Response> {
     const response = await this.getAnArtistsRelatedArtistsRaw(
       requestParameters,
       initOverrides,
@@ -434,7 +436,7 @@ export class ArtistsApi extends runtime.BaseAPI {
   async getAnArtistsTopTracksRaw(
     requestParameters: ArtistsApiGetAnArtistsTopTracksRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject12>> {
+  ): Promise<runtime.ApiResponse<GetAnArtistsTopTracks200Response>> {
     if (requestParameters["id"] == null) {
       throw new runtime.RequiredError(
         "id",
@@ -484,7 +486,7 @@ export class ArtistsApi extends runtime.BaseAPI {
   async getAnArtistsTopTracks(
     requestParameters: ArtistsApiGetAnArtistsTopTracksRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject12> {
+  ): Promise<GetAnArtistsTopTracks200Response> {
     const response = await this.getAnArtistsTopTracksRaw(
       requestParameters,
       initOverrides,
@@ -499,7 +501,7 @@ export class ArtistsApi extends runtime.BaseAPI {
   async getFollowedRaw(
     requestParameters: ArtistsApiGetFollowedRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject7>> {
+  ): Promise<runtime.ApiResponse<GetFollowed200Response>> {
     if (requestParameters["type"] == null) {
       throw new runtime.RequiredError(
         "type",
@@ -553,7 +555,7 @@ export class ArtistsApi extends runtime.BaseAPI {
   async getFollowed(
     requestParameters: ArtistsApiGetFollowedRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject7> {
+  ): Promise<GetFollowed200Response> {
     const response = await this.getFollowedRaw(
       requestParameters,
       initOverrides,
@@ -568,7 +570,7 @@ export class ArtistsApi extends runtime.BaseAPI {
   async getMultipleArtistsRaw(
     requestParameters: ArtistsApiGetMultipleArtistsRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject8>> {
+  ): Promise<runtime.ApiResponse<GetMultipleArtists200Response>> {
     if (requestParameters["ids"] == null) {
       throw new runtime.RequiredError(
         "ids",
@@ -614,7 +616,7 @@ export class ArtistsApi extends runtime.BaseAPI {
   async getMultipleArtists(
     requestParameters: ArtistsApiGetMultipleArtistsRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject8> {
+  ): Promise<GetMultipleArtists200Response> {
     const response = await this.getMultipleArtistsRaw(
       requestParameters,
       initOverrides,
@@ -755,39 +757,3 @@ export class ArtistsApi extends runtime.BaseAPI {
     await this.unfollowArtistsUsersRaw(requestParameters, initOverrides);
   }
 }
-
-/**
- * @export
- */
-export const CheckCurrentUserFollowsTypeEnum = {
-  Artist: "artist",
-  User: "user",
-} as const;
-export type CheckCurrentUserFollowsTypeEnum =
-  (typeof CheckCurrentUserFollowsTypeEnum)[keyof typeof CheckCurrentUserFollowsTypeEnum];
-/**
- * @export
- */
-export const FollowArtistsUsersOperationTypeEnum = {
-  Artist: "artist",
-  User: "user",
-} as const;
-export type FollowArtistsUsersOperationTypeEnum =
-  (typeof FollowArtistsUsersOperationTypeEnum)[keyof typeof FollowArtistsUsersOperationTypeEnum];
-/**
- * @export
- */
-export const GetFollowedTypeEnum = {
-  Artist: "artist",
-} as const;
-export type GetFollowedTypeEnum =
-  (typeof GetFollowedTypeEnum)[keyof typeof GetFollowedTypeEnum];
-/**
- * @export
- */
-export const UnfollowArtistsUsersOperationTypeEnum = {
-  Artist: "artist",
-  User: "user",
-} as const;
-export type UnfollowArtistsUsersOperationTypeEnum =
-  (typeof UnfollowArtistsUsersOperationTypeEnum)[keyof typeof UnfollowArtistsUsersOperationTypeEnum];

@@ -14,8 +14,8 @@
 
 import type {
   EpisodeObject,
-  InlineObject,
-  InlineObject10,
+  GetAnAlbum401Response,
+  GetMultipleEpisodes200Response,
   PagingSavedEpisodeObject,
   PagingSimplifiedEpisodeObject,
   RemoveEpisodesUserRequest,
@@ -270,7 +270,7 @@ export class EpisodesApi extends runtime.BaseAPI {
   async getMultipleEpisodesRaw(
     requestParameters: EpisodesApiGetMultipleEpisodesRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject10>> {
+  ): Promise<runtime.ApiResponse<GetMultipleEpisodes200Response>> {
     if (requestParameters["ids"] == null) {
       throw new runtime.RequiredError(
         "ids",
@@ -320,7 +320,7 @@ export class EpisodesApi extends runtime.BaseAPI {
   async getMultipleEpisodes(
     requestParameters: EpisodesApiGetMultipleEpisodesRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject10> {
+  ): Promise<GetMultipleEpisodes200Response> {
     const response = await this.getMultipleEpisodesRaw(
       requestParameters,
       initOverrides,

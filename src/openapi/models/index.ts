@@ -2746,6 +2746,256 @@ export interface FollowersObject {
 /**
  *
  * @export
+ * @interface GetAUsersAvailableDevices200Response
+ */
+export interface GetAUsersAvailableDevices200Response {
+  /**
+   *
+   * @type {Array<DeviceObject>}
+   * @memberof GetAUsersAvailableDevices200Response
+   */
+  devices: Array<DeviceObject>;
+}
+/**
+ *
+ * @export
+ * @interface GetAnAlbum401Response
+ */
+export interface GetAnAlbum401Response {
+  /**
+   *
+   * @type {ErrorObject}
+   * @memberof GetAnAlbum401Response
+   */
+  error: ErrorObject;
+}
+/**
+ *
+ * @export
+ * @interface GetAnArtistsTopTracks200Response
+ */
+export interface GetAnArtistsTopTracks200Response {
+  /**
+   *
+   * @type {Array<TrackObject>}
+   * @memberof GetAnArtistsTopTracks200Response
+   */
+  tracks: Array<TrackObject>;
+}
+/**
+ *
+ * @export
+ * @interface GetAvailableMarkets200Response
+ */
+export interface GetAvailableMarkets200Response {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof GetAvailableMarkets200Response
+   */
+  markets?: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface GetCategories200Response
+ */
+export interface GetCategories200Response {
+  /**
+   *
+   * @type {GetCategories200ResponseCategories}
+   * @memberof GetCategories200Response
+   */
+  categories: GetCategories200ResponseCategories;
+}
+/**
+ *
+ * @export
+ * @interface GetCategories200ResponseCategories
+ */
+export interface GetCategories200ResponseCategories {
+  /**
+   * A link to the Web API endpoint returning the full result of the request
+   *
+   * @type {string}
+   * @memberof GetCategories200ResponseCategories
+   */
+  href: string;
+  /**
+   * The maximum number of items in the response (as set in the query or by default).
+   *
+   * @type {number}
+   * @memberof GetCategories200ResponseCategories
+   */
+  limit: number;
+  /**
+   * URL to the next page of items. ( `null` if none)
+   *
+   * @type {string}
+   * @memberof GetCategories200ResponseCategories
+   */
+  next: string | null;
+  /**
+   * The offset of the items returned (as set in the query or by default)
+   *
+   * @type {number}
+   * @memberof GetCategories200ResponseCategories
+   */
+  offset: number;
+  /**
+   * URL to the previous page of items. ( `null` if none)
+   *
+   * @type {string}
+   * @memberof GetCategories200ResponseCategories
+   */
+  previous: string | null;
+  /**
+   * The total number of items available to return.
+   *
+   * @type {number}
+   * @memberof GetCategories200ResponseCategories
+   */
+  total: number;
+  /**
+   *
+   * @type {Array<CategoryObject>}
+   * @memberof GetCategories200ResponseCategories
+   */
+  items: Array<CategoryObject>;
+}
+/**
+ *
+ * @export
+ * @interface GetFollowed200Response
+ */
+export interface GetFollowed200Response {
+  /**
+   *
+   * @type {CursorPagingSimplifiedArtistObject}
+   * @memberof GetFollowed200Response
+   */
+  artists: CursorPagingSimplifiedArtistObject;
+}
+/**
+ *
+ * @export
+ * @interface GetMultipleAlbums200Response
+ */
+export interface GetMultipleAlbums200Response {
+  /**
+   *
+   * @type {Array<AlbumObject>}
+   * @memberof GetMultipleAlbums200Response
+   */
+  albums: Array<AlbumObject>;
+}
+/**
+ *
+ * @export
+ * @interface GetMultipleArtists200Response
+ */
+export interface GetMultipleArtists200Response {
+  /**
+   *
+   * @type {Array<ArtistObject>}
+   * @memberof GetMultipleArtists200Response
+   */
+  artists: Array<ArtistObject>;
+}
+/**
+ *
+ * @export
+ * @interface GetMultipleAudiobooks200Response
+ */
+export interface GetMultipleAudiobooks200Response {
+  /**
+   *
+   * @type {Array<AudiobookObject>}
+   * @memberof GetMultipleAudiobooks200Response
+   */
+  audiobooks: Array<AudiobookObject>;
+}
+/**
+ *
+ * @export
+ * @interface GetMultipleEpisodes200Response
+ */
+export interface GetMultipleEpisodes200Response {
+  /**
+   *
+   * @type {Array<EpisodeObject>}
+   * @memberof GetMultipleEpisodes200Response
+   */
+  episodes: Array<EpisodeObject>;
+}
+/**
+ *
+ * @export
+ * @interface GetMultipleShows200Response
+ */
+export interface GetMultipleShows200Response {
+  /**
+   *
+   * @type {Array<SimplifiedShowObject>}
+   * @memberof GetMultipleShows200Response
+   */
+  shows: Array<SimplifiedShowObject>;
+}
+/**
+ *
+ * @export
+ * @interface GetNewReleases200Response
+ */
+export interface GetNewReleases200Response {
+  /**
+   *
+   * @type {PagingSimplifiedAlbumObject}
+   * @memberof GetNewReleases200Response
+   */
+  albums: PagingSimplifiedAlbumObject;
+}
+/**
+ *
+ * @export
+ * @interface GetRecommendationGenres200Response
+ */
+export interface GetRecommendationGenres200Response {
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof GetRecommendationGenres200Response
+   */
+  genres: Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface GetSeveralAudioFeatures200Response
+ */
+export interface GetSeveralAudioFeatures200Response {
+  /**
+   *
+   * @type {Array<AudioFeaturesObject>}
+   * @memberof GetSeveralAudioFeatures200Response
+   */
+  audio_features: Array<AudioFeaturesObject>;
+}
+/**
+ *
+ * @export
+ * @interface GetSeveralChapters200Response
+ */
+export interface GetSeveralChapters200Response {
+  /**
+   *
+   * @type {Array<ChapterObject>}
+   * @memberof GetSeveralChapters200Response
+   */
+  chapters: Array<ChapterObject>;
+}
+/**
+ *
+ * @export
  * @interface ImageObject
  */
 export interface ImageObject {
@@ -2770,318 +3020,6 @@ export interface ImageObject {
    * @memberof ImageObject
    */
   width: number | null;
-}
-/**
- *
- * @export
- * @interface InlineObject
- */
-export interface InlineObject {
-  /**
-   *
-   * @type {ErrorObject}
-   * @memberof InlineObject
-   */
-  error: ErrorObject;
-}
-/**
- *
- * @export
- * @interface InlineObject1
- */
-export interface InlineObject1 {
-  /**
-   *
-   * @type {Array<AlbumObject>}
-   * @memberof InlineObject1
-   */
-  albums: Array<AlbumObject>;
-}
-/**
- *
- * @export
- * @interface InlineObject10
- */
-export interface InlineObject10 {
-  /**
-   *
-   * @type {Array<EpisodeObject>}
-   * @memberof InlineObject10
-   */
-  episodes: Array<EpisodeObject>;
-}
-/**
- *
- * @export
- * @interface InlineObject11
- */
-export interface InlineObject11 {
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineObject11
-   */
-  genres: Array<string>;
-}
-/**
- *
- * @export
- * @interface InlineObject12
- */
-export interface InlineObject12 {
-  /**
-   *
-   * @type {Array<TrackObject>}
-   * @memberof InlineObject12
-   */
-  tracks: Array<TrackObject>;
-}
-/**
- *
- * @export
- * @interface InlineObject13
- */
-export interface InlineObject13 {
-  /**
-   *
-   * @type {Array<SimplifiedShowObject>}
-   * @memberof InlineObject13
-   */
-  shows: Array<SimplifiedShowObject>;
-}
-/**
- *
- * @export
- * @interface InlineObject14
- */
-export interface InlineObject14 {
-  /**
-   *
-   * @type {PagingTrackObject}
-   * @memberof InlineObject14
-   */
-  tracks?: PagingTrackObject;
-  /**
-   *
-   * @type {PagingArtistObject}
-   * @memberof InlineObject14
-   */
-  artists?: PagingArtistObject;
-  /**
-   *
-   * @type {PagingSimplifiedAlbumObject}
-   * @memberof InlineObject14
-   */
-  albums?: PagingSimplifiedAlbumObject;
-  /**
-   *
-   * @type {PagingPlaylistObject}
-   * @memberof InlineObject14
-   */
-  playlists?: PagingPlaylistObject;
-  /**
-   *
-   * @type {PagingSimplifiedShowObject}
-   * @memberof InlineObject14
-   */
-  shows?: PagingSimplifiedShowObject;
-  /**
-   *
-   * @type {PagingSimplifiedEpisodeObject}
-   * @memberof InlineObject14
-   */
-  episodes?: PagingSimplifiedEpisodeObject;
-  /**
-   *
-   * @type {PagingSimplifiedAudiobookObject}
-   * @memberof InlineObject14
-   */
-  audiobooks?: PagingSimplifiedAudiobookObject;
-}
-/**
- *
- * @export
- * @interface InlineObject15
- */
-export interface InlineObject15 {
-  /**
-   *
-   * @type {string}
-   * @memberof InlineObject15
-   */
-  snapshot_id?: string;
-}
-/**
- *
- * @export
- * @interface InlineObject16
- */
-export interface InlineObject16 {
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof InlineObject16
-   */
-  markets?: Array<string>;
-}
-/**
- *
- * @export
- * @interface InlineObject2
- */
-export interface InlineObject2 {
-  /**
-   *
-   * @type {Array<AudiobookObject>}
-   * @memberof InlineObject2
-   */
-  audiobooks: Array<AudiobookObject>;
-}
-/**
- *
- * @export
- * @interface InlineObject3
- */
-export interface InlineObject3 {
-  /**
-   *
-   * @type {Array<ChapterObject>}
-   * @memberof InlineObject3
-   */
-  chapters: Array<ChapterObject>;
-}
-/**
- *
- * @export
- * @interface InlineObject4
- */
-export interface InlineObject4 {
-  /**
-   *
-   * @type {Array<DeviceObject>}
-   * @memberof InlineObject4
-   */
-  devices: Array<DeviceObject>;
-}
-/**
- *
- * @export
- * @interface InlineObject5
- */
-export interface InlineObject5 {
-  /**
-   *
-   * @type {PagingSimplifiedAlbumObject}
-   * @memberof InlineObject5
-   */
-  albums: PagingSimplifiedAlbumObject;
-}
-/**
- *
- * @export
- * @interface InlineObject6
- */
-export interface InlineObject6 {
-  /**
-   *
-   * @type {InlineObject6Categories}
-   * @memberof InlineObject6
-   */
-  categories: InlineObject6Categories;
-}
-/**
- *
- * @export
- * @interface InlineObject6Categories
- */
-export interface InlineObject6Categories {
-  /**
-   * A link to the Web API endpoint returning the full result of the request
-   *
-   * @type {string}
-   * @memberof InlineObject6Categories
-   */
-  href: string;
-  /**
-   * The maximum number of items in the response (as set in the query or by default).
-   *
-   * @type {number}
-   * @memberof InlineObject6Categories
-   */
-  limit: number;
-  /**
-   * URL to the next page of items. ( `null` if none)
-   *
-   * @type {string}
-   * @memberof InlineObject6Categories
-   */
-  next: string | null;
-  /**
-   * The offset of the items returned (as set in the query or by default)
-   *
-   * @type {number}
-   * @memberof InlineObject6Categories
-   */
-  offset: number;
-  /**
-   * URL to the previous page of items. ( `null` if none)
-   *
-   * @type {string}
-   * @memberof InlineObject6Categories
-   */
-  previous: string | null;
-  /**
-   * The total number of items available to return.
-   *
-   * @type {number}
-   * @memberof InlineObject6Categories
-   */
-  total: number;
-  /**
-   *
-   * @type {Array<CategoryObject>}
-   * @memberof InlineObject6Categories
-   */
-  items: Array<CategoryObject>;
-}
-/**
- *
- * @export
- * @interface InlineObject7
- */
-export interface InlineObject7 {
-  /**
-   *
-   * @type {CursorPagingSimplifiedArtistObject}
-   * @memberof InlineObject7
-   */
-  artists: CursorPagingSimplifiedArtistObject;
-}
-/**
- *
- * @export
- * @interface InlineObject8
- */
-export interface InlineObject8 {
-  /**
-   *
-   * @type {Array<ArtistObject>}
-   * @memberof InlineObject8
-   */
-  artists: Array<ArtistObject>;
-}
-/**
- *
- * @export
- * @interface InlineObject9
- */
-export interface InlineObject9 {
-  /**
-   *
-   * @type {Array<AudioFeaturesObject>}
-   * @memberof InlineObject9
-   */
-  audio_features: Array<AudioFeaturesObject>;
 }
 /**
  *
@@ -4712,6 +4650,19 @@ export interface RemoveTracksPlaylistRequestTracksInner {
 /**
  *
  * @export
+ * @interface ReorderOrReplacePlaylistsTracks200Response
+ */
+export interface ReorderOrReplacePlaylistsTracks200Response {
+  /**
+   *
+   * @type {string}
+   * @memberof ReorderOrReplacePlaylistsTracks200Response
+   */
+  snapshot_id?: string;
+}
+/**
+ *
+ * @export
  * @interface ReorderOrReplacePlaylistsTracksRequest
  */
 export interface ReorderOrReplacePlaylistsTracksRequest {
@@ -4824,14 +4775,14 @@ export interface SaveShowsUserRequest {
 export interface SaveTracksUserRequest {
   [key: string]: any | any;
   /**
-   * A JSON array of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids). For example: `["4iV5W9uYEdYUVa79Axb7Rh", "1301WleyT98MSxVHPZCA6M"]`<br/>A maximum of 50 items can be specified in one request. _**Note**: if the `ids` parameter is present in the query string, any IDs listed here in the body will be ignored._
+   * A JSON array of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids). For example: `["4iV5W9uYEdYUVa79Axb7Rh", "1301WleyT98MSxVHPZCA6M"]`<br/>A maximum of 50 items can be specified in one request. _**Note**: if the `timestamped_ids` is present in the body, any IDs listed in the query parameters (deprecated) or the `ids` field in the body will be ignored._
    *
    * @type {Array<string>}
    * @memberof SaveTracksUserRequest
    */
   ids: Array<string>;
   /**
-   * A JSON array of objects containing track IDs with their corresponding timestamps. Each object must include a track ID and an `added_at` timestamp. This allows you to specify when tracks were added to maintain a specific chronological order in the user's library.<br/>A maximum of 50 items can be specified in one request. _**Note**: if the `timestamped_ids` is present in the body, any IDs listed in the query parameters or the `ids` field in the body will be ignored._
+   * A JSON array of objects containing track IDs with their corresponding timestamps. Each object must include a track ID and an `added_at` timestamp. This allows you to specify when tracks were added to maintain a specific chronological order in the user's library.<br/>A maximum of 50 items can be specified in one request. _**Note**: if the `timestamped_ids` is present in the body, any IDs listed in the query parameters (deprecated) or the `ids` field in the body will be ignored._
    *
    * @type {Array<SaveTracksUserRequestTimestampedIdsInner>}
    * @memberof SaveTracksUserRequest
@@ -4967,6 +4918,55 @@ export interface SavedTrackObject {
    * @memberof SavedTrackObject
    */
   track?: TrackObject;
+}
+/**
+ *
+ * @export
+ * @interface Search200Response
+ */
+export interface Search200Response {
+  /**
+   *
+   * @type {PagingTrackObject}
+   * @memberof Search200Response
+   */
+  tracks?: PagingTrackObject;
+  /**
+   *
+   * @type {PagingArtistObject}
+   * @memberof Search200Response
+   */
+  artists?: PagingArtistObject;
+  /**
+   *
+   * @type {PagingSimplifiedAlbumObject}
+   * @memberof Search200Response
+   */
+  albums?: PagingSimplifiedAlbumObject;
+  /**
+   *
+   * @type {PagingPlaylistObject}
+   * @memberof Search200Response
+   */
+  playlists?: PagingPlaylistObject;
+  /**
+   *
+   * @type {PagingSimplifiedShowObject}
+   * @memberof Search200Response
+   */
+  shows?: PagingSimplifiedShowObject;
+  /**
+   *
+   * @type {PagingSimplifiedEpisodeObject}
+   * @memberof Search200Response
+   */
+  episodes?: PagingSimplifiedEpisodeObject;
+  /**
+   *
+   * @type {PagingSimplifiedAudiobookObject}
+   * @memberof Search200Response
+   */
+  audiobooks?: PagingSimplifiedAudiobookObject;
 }
 /**
  *
@@ -6729,3 +6729,16 @@ export interface UnfollowArtistsUsersRequest {
    */
   ids?: Array<string>;
 }
+
+export const FollowTypeEnum = {
+  Artist: "artist",
+  User: "user",
+} as const;
+export type FollowTypeEnum =
+  (typeof FollowTypeEnum)[keyof typeof FollowTypeEnum];
+
+export const GetFollowTypeEnum = {
+  Artist: "artist",
+} as const;
+export type GetFollowTypeEnum =
+  (typeof FollowTypeEnum)[keyof typeof FollowTypeEnum];

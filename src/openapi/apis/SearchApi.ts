@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { InlineObject, InlineObject14 } from "../models/index";
+import type { GetAnAlbum401Response, Search200Response } from "../models/index";
 import * as runtime from "../runtime";
 
 export interface SearchApiSearchRequest {
@@ -35,7 +35,7 @@ export class SearchApi extends runtime.BaseAPI {
   async searchRaw(
     requestParameters: SearchApiSearchRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject14>> {
+  ): Promise<runtime.ApiResponse<Search200Response>> {
     if (requestParameters["q"] == null) {
       throw new runtime.RequiredError(
         "q",
@@ -111,7 +111,7 @@ export class SearchApi extends runtime.BaseAPI {
   async search(
     requestParameters: SearchApiSearchRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject14> {
+  ): Promise<Search200Response> {
     const response = await this.searchRaw(requestParameters, initOverrides);
     return await response.value();
   }

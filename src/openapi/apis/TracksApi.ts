@@ -16,16 +16,16 @@ import type {
   AddTracksToPlaylistRequest,
   AudioAnalysisObject,
   AudioFeaturesObject,
-  InlineObject,
-  InlineObject9,
-  InlineObject12,
-  InlineObject15,
+  GetAnAlbum401Response,
+  GetAnArtistsTopTracks200Response,
+  GetSeveralAudioFeatures200Response,
   PagingPlaylistTrackObject,
   PagingSavedTrackObject,
   PagingSimplifiedTrackObject,
   PagingTrackObject,
   RecommendationsObject,
   RemoveTracksPlaylistRequest,
+  ReorderOrReplacePlaylistsTracks200Response,
   ReorderOrReplacePlaylistsTracksRequest,
   SaveAlbumsUserRequest,
   SaveTracksUserRequest,
@@ -166,7 +166,6 @@ export interface TracksApiReorderOrReplacePlaylistsTracksOperationRequest {
 }
 
 export interface TracksApiSaveTracksUserOperationRequest {
-  ids: string;
   saveTracksUserRequest?: SaveTracksUserRequest;
 }
 
@@ -181,7 +180,7 @@ export class TracksApi extends runtime.BaseAPI {
   async addTracksToPlaylistRaw(
     requestParameters: TracksApiAddTracksToPlaylistOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject15>> {
+  ): Promise<runtime.ApiResponse<ReorderOrReplacePlaylistsTracks200Response>> {
     if (requestParameters["playlistId"] == null) {
       throw new runtime.RequiredError(
         "playlistId",
@@ -238,7 +237,7 @@ export class TracksApi extends runtime.BaseAPI {
   async addTracksToPlaylist(
     requestParameters: TracksApiAddTracksToPlaylistOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject15> {
+  ): Promise<ReorderOrReplacePlaylistsTracks200Response> {
     const response = await this.addTracksToPlaylistRaw(
       requestParameters,
       initOverrides,
@@ -387,7 +386,7 @@ export class TracksApi extends runtime.BaseAPI {
   async getAnArtistsTopTracksRaw(
     requestParameters: TracksApiGetAnArtistsTopTracksRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject12>> {
+  ): Promise<runtime.ApiResponse<GetAnArtistsTopTracks200Response>> {
     if (requestParameters["id"] == null) {
       throw new runtime.RequiredError(
         "id",
@@ -437,7 +436,7 @@ export class TracksApi extends runtime.BaseAPI {
   async getAnArtistsTopTracks(
     requestParameters: TracksApiGetAnArtistsTopTracksRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject12> {
+  ): Promise<GetAnArtistsTopTracks200Response> {
     const response = await this.getAnArtistsTopTracksRaw(
       requestParameters,
       initOverrides,
@@ -916,7 +915,7 @@ export class TracksApi extends runtime.BaseAPI {
   async getSeveralAudioFeaturesRaw(
     requestParameters: TracksApiGetSeveralAudioFeaturesRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject9>> {
+  ): Promise<runtime.ApiResponse<GetSeveralAudioFeatures200Response>> {
     if (requestParameters["ids"] == null) {
       throw new runtime.RequiredError(
         "ids",
@@ -963,7 +962,7 @@ export class TracksApi extends runtime.BaseAPI {
   async getSeveralAudioFeatures(
     requestParameters: TracksApiGetSeveralAudioFeaturesRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject9> {
+  ): Promise<GetSeveralAudioFeatures200Response> {
     const response = await this.getSeveralAudioFeaturesRaw(
       requestParameters,
       initOverrides,
@@ -978,7 +977,7 @@ export class TracksApi extends runtime.BaseAPI {
   async getSeveralTracksRaw(
     requestParameters: TracksApiGetSeveralTracksRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject12>> {
+  ): Promise<runtime.ApiResponse<GetAnArtistsTopTracks200Response>> {
     if (requestParameters["ids"] == null) {
       throw new runtime.RequiredError(
         "ids",
@@ -1028,7 +1027,7 @@ export class TracksApi extends runtime.BaseAPI {
   async getSeveralTracks(
     requestParameters: TracksApiGetSeveralTracksRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject12> {
+  ): Promise<GetAnArtistsTopTracks200Response> {
     const response = await this.getSeveralTracksRaw(
       requestParameters,
       initOverrides,
@@ -1229,7 +1228,7 @@ export class TracksApi extends runtime.BaseAPI {
   async removeTracksPlaylistRaw(
     requestParameters: TracksApiRemoveTracksPlaylistOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject15>> {
+  ): Promise<runtime.ApiResponse<ReorderOrReplacePlaylistsTracks200Response>> {
     if (requestParameters["playlistId"] == null) {
       throw new runtime.RequiredError(
         "playlistId",
@@ -1278,7 +1277,7 @@ export class TracksApi extends runtime.BaseAPI {
   async removeTracksPlaylist(
     requestParameters: TracksApiRemoveTracksPlaylistOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject15> {
+  ): Promise<ReorderOrReplacePlaylistsTracks200Response> {
     const response = await this.removeTracksPlaylistRaw(
       requestParameters,
       initOverrides,
@@ -1353,7 +1352,7 @@ export class TracksApi extends runtime.BaseAPI {
   async reorderOrReplacePlaylistsTracksRaw(
     requestParameters: TracksApiReorderOrReplacePlaylistsTracksOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject15>> {
+  ): Promise<runtime.ApiResponse<ReorderOrReplacePlaylistsTracks200Response>> {
     if (requestParameters["playlistId"] == null) {
       throw new runtime.RequiredError(
         "playlistId",
@@ -1406,7 +1405,7 @@ export class TracksApi extends runtime.BaseAPI {
   async reorderOrReplacePlaylistsTracks(
     requestParameters: TracksApiReorderOrReplacePlaylistsTracksOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject15> {
+  ): Promise<ReorderOrReplacePlaylistsTracks200Response> {
     const response = await this.reorderOrReplacePlaylistsTracksRaw(
       requestParameters,
       initOverrides,
@@ -1422,18 +1421,7 @@ export class TracksApi extends runtime.BaseAPI {
     requestParameters: TracksApiSaveTracksUserOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
   ): Promise<runtime.ApiResponse<void>> {
-    if (requestParameters["ids"] == null) {
-      throw new runtime.RequiredError(
-        "ids",
-        'Required parameter "ids" was null or undefined when calling saveTracksUser().',
-      );
-    }
-
     const queryParameters: any = {};
-
-    if (requestParameters["ids"] != null) {
-      queryParameters["ids"] = requestParameters["ids"];
-    }
 
     const headerParameters: runtime.HTTPHeaders = {};
 
@@ -1468,7 +1456,7 @@ export class TracksApi extends runtime.BaseAPI {
    * Save Tracks for Current User
    */
   async saveTracksUser(
-    requestParameters: TracksApiSaveTracksUserOperationRequest,
+    requestParameters: TracksApiSaveTracksUserOperationRequest = {},
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
   ): Promise<void> {
     await this.saveTracksUserRaw(requestParameters, initOverrides);

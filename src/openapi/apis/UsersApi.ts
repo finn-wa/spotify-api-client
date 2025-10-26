@@ -15,8 +15,10 @@
 import type {
   FollowArtistsUsersRequest,
   FollowPlaylistRequest,
-  InlineObject,
-  InlineObject7,
+  FollowTypeEnum,
+  GetAnAlbum401Response,
+  GetFollowed200Response,
+  GetFollowTypeEnum,
   PagingArtistObject,
   PagingPlaylistObject,
   PagingTrackObject,
@@ -27,7 +29,7 @@ import type {
 import * as runtime from "../runtime";
 
 export interface UsersApiCheckCurrentUserFollowsRequest {
-  type: CheckCurrentUserFollowsTypeEnum;
+  type: FollowTypeEnum;
   ids: string;
 }
 
@@ -37,7 +39,7 @@ export interface UsersApiCheckIfUserFollowsPlaylistRequest {
 }
 
 export interface UsersApiFollowArtistsUsersOperationRequest {
-  type: FollowArtistsUsersOperationTypeEnum;
+  type: FollowTypeEnum;
   ids: string;
   followArtistsUsersRequest?: FollowArtistsUsersRequest;
 }
@@ -48,7 +50,7 @@ export interface UsersApiFollowPlaylistOperationRequest {
 }
 
 export interface UsersApiGetFollowedRequest {
-  type: GetFollowedTypeEnum;
+  type: GetFollowTypeEnum;
   after?: string;
   limit?: number;
 }
@@ -76,7 +78,7 @@ export interface UsersApiGetUsersTopTracksRequest {
 }
 
 export interface UsersApiUnfollowArtistsUsersOperationRequest {
-  type: UnfollowArtistsUsersOperationTypeEnum;
+  type: FollowTypeEnum;
   ids: string;
   unfollowArtistsUsersRequest?: UnfollowArtistsUsersRequest;
 }
@@ -409,7 +411,7 @@ export class UsersApi extends runtime.BaseAPI {
   async getFollowedRaw(
     requestParameters: UsersApiGetFollowedRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<runtime.ApiResponse<InlineObject7>> {
+  ): Promise<runtime.ApiResponse<GetFollowed200Response>> {
     if (requestParameters["type"] == null) {
       throw new runtime.RequiredError(
         "type",
@@ -463,7 +465,7 @@ export class UsersApi extends runtime.BaseAPI {
   async getFollowed(
     requestParameters: UsersApiGetFollowedRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
-  ): Promise<InlineObject7> {
+  ): Promise<GetFollowed200Response> {
     const response = await this.getFollowedRaw(
       requestParameters,
       initOverrides,
@@ -853,39 +855,3 @@ export class UsersApi extends runtime.BaseAPI {
     await this.unfollowPlaylistRaw(requestParameters, initOverrides);
   }
 }
-
-/**
- * @export
- */
-export const CheckCurrentUserFollowsTypeEnum = {
-  Artist: "artist",
-  User: "user",
-} as const;
-export type CheckCurrentUserFollowsTypeEnum =
-  (typeof CheckCurrentUserFollowsTypeEnum)[keyof typeof CheckCurrentUserFollowsTypeEnum];
-/**
- * @export
- */
-export const FollowArtistsUsersOperationTypeEnum = {
-  Artist: "artist",
-  User: "user",
-} as const;
-export type FollowArtistsUsersOperationTypeEnum =
-  (typeof FollowArtistsUsersOperationTypeEnum)[keyof typeof FollowArtistsUsersOperationTypeEnum];
-/**
- * @export
- */
-export const GetFollowedTypeEnum = {
-  Artist: "artist",
-} as const;
-export type GetFollowedTypeEnum =
-  (typeof GetFollowedTypeEnum)[keyof typeof GetFollowedTypeEnum];
-/**
- * @export
- */
-export const UnfollowArtistsUsersOperationTypeEnum = {
-  Artist: "artist",
-  User: "user",
-} as const;
-export type UnfollowArtistsUsersOperationTypeEnum =
-  (typeof UnfollowArtistsUsersOperationTypeEnum)[keyof typeof UnfollowArtistsUsersOperationTypeEnum];
