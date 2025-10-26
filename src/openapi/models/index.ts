@@ -4253,9 +4253,7 @@ export interface PlaylistTrackObject {
  * Information about the track or episode.
  * @export
  */
-export type PlaylistTrackObjectTrack =
-  | ({ type: "EpisodeObject" } & EpisodeObject)
-  | ({ type: "TrackObject" } & TrackObject);
+export type PlaylistTrackObjectTrack = EpisodeObject | TrackObject;
 /**
  *
  * @export
@@ -4514,17 +4512,13 @@ export interface QueueObject {
  * The currently playing track or episode. Can be `null`.
  * @export
  */
-export type QueueObjectCurrentlyPlaying =
-  | ({ type: "EpisodeObject" } & EpisodeObject)
-  | ({ type: "TrackObject" } & TrackObject);
+export type QueueObjectCurrentlyPlaying = EpisodeObject | TrackObject;
 /**
  * @type QueueObjectQueueInner
  *
  * @export
  */
-export type QueueObjectQueueInner =
-  | ({ type: "EpisodeObject" } & EpisodeObject)
-  | ({ type: "TrackObject" } & TrackObject);
+export type QueueObjectQueueInner = EpisodeObject | TrackObject;
 /**
  *
  * @export
