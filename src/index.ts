@@ -17,6 +17,13 @@ export * from "./openapi/apis/index";
 export * from "./openapi/models/index";
 
 export {
+  initSpotifyPlayer,
+  type SpotifyPlayer,
+  type SpotifyPlayerOptions,
+  type WebPlaybackState,
+} from "./player/SpotifyPlayer";
+
+export {
   spotifyAlbumsApi,
   spotifyArtistsApi,
   spotifyAudiobooksApi,

@@ -1,6 +1,7 @@
 .vscode/settings.json
 openapi/client
 openapi/spec
+temp
 
 # dependencies (bun install)
 node_modules
