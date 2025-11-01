@@ -62,7 +62,7 @@ export default class ImplicitGrantStrategy implements SpotifyAuth {
     }
 
     const scopes = this.scopes ?? [];
-    var scope = scopes.join(" ");
+    const scope = scopes.join(" ");
 
     const params = new URLSearchParams();
     params.append("client_id", this.clientId);

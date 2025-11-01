@@ -1,4 +1,5 @@
 import type { PlayerError } from "../error/PlayerError";
+import type { WebPlaybackInstance, WebPlaybackState } from "../types";
 
 export const AnthemEvents = {
   ACCOUNT_ERROR: "account_error",
@@ -15,15 +16,13 @@ export const AnthemEvents = {
 export type AnthemEventType = (typeof AnthemEvents)[keyof typeof AnthemEvents];
 
 export type AnthemEventListener = {
-  [AnthemEvents.PLAYER_READY]: (player: Spotify.WebPlaybackInstance) => void;
-  [AnthemEvents.PLAYER_NOT_READY]: (
-    player: Spotify.WebPlaybackInstance,
-  ) => void;
-  [AnthemEvents.PLAYER_STATE_CHANGED]: (player: Spotify.PlaybackState) => void;
+  [AnthemEvents.PLAYER_READY]: (player: WebPlaybackInstance) => void;
+  [AnthemEvents.PLAYER_NOT_READY]: (player: WebPlaybackInstance) => void;
+  [AnthemEvents.PLAYER_STATE_CHANGED]: (player: WebPlaybackState) => void;
   [AnthemEvents.AUTOPLAY_FAILED]: () => void;
   [AnthemEvents.ACCOUNT_ERROR]: (e: PlayerError) => void;
   [AnthemEvents.AUTH_ERROR]: (e: PlayerError) => void;
   [AnthemEvents.PLAYBACK_ERROR]: (e: PlayerError) => void;
   [AnthemEvents.PLAYER_INIT_ERROR]: (e: PlayerError) => void;
-  [AnthemEvents.PROGRESS]: (x: unknown) => void;
+  [AnthemEvents.PROGRESS]: (event: { position: number }) => void;
 };

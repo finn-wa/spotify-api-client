@@ -16,25 +16,39 @@ import {
   createPromiseResolver,
   type PromiseResolver,
 } from "./shared/PromiseResolver";
+import type { WebPlaybackState } from "./types";
 
-const defaultIframeFactory = (hostWindow: Window) =>
-  function (t: string) {
-    var iframe = hostWindow.document.createElement("iframe");
-    iframe.src = t;
-    iframe.setAttribute("alt", "Audio Playback Container");
-    iframe.setAttribute("tabIndex", "-1");
-    iframe.style.setProperty("position", "absolute", "important");
-    iframe.style.setProperty("left", "-1px", "important");
-    iframe.style.setProperty("width", "0", "important");
-    iframe.style.setProperty("height", "0", "important");
-    iframe.style.setProperty("border", "none", "important");
-    iframe.style.setProperty("outline", "none", "important");
-    iframe.allow = "encrypted-media; autoplay";
-    hostWindow.document.body.appendChild(iframe);
-    return iframe.contentWindow!;
-  };
+const defaultIframeFactory = (hostWindow: Window) => (src: string) => {
+  const id = "spotify-playback-sdk-container";
+  const existingIframe = hostWindow.document.getElementById(id);
+  if (existingIframe != null) {
+    if (
+      existingIframe instanceof HTMLIFrameElement &&
+      existingIframe.contentWindow != null
+    ) {
+      console.log("Connecting to existing Spotify playback iframe...");
+      return existingIframe.contentWindow;
+    }
+    console.log("Removing errored Spotify playback iframe");
+    hostWindow.document.removeChild(existingIframe);
+  }
+  console.log("Creating Spotify playback iframe...");
+  const iframe = hostWindow.document.createElement("iframe");
+  iframe.id = id;
+  iframe.src = src;
+  iframe.setAttribute("alt", "Audio Playback Container");
+  iframe.setAttribute("tabIndex", "-1");
+  iframe.style.setProperty("position", "absolute", "important");
+  iframe.style.setProperty("left", "-1px", "important");
+  iframe.style.setProperty("width", "0", "important");
+  iframe.style.setProperty("height", "0", "important");
+  iframe.style.setProperty("border", "none", "important");
+  iframe.style.setProperty("outline", "none", "important");
+  iframe.allow = "encrypted-media; autoplay";
+  hostWindow.document.body.appendChild(iframe);
+  return iframe.contentWindow!;
+};
 
-export type WebPlaybackState = Spotify.PlaybackState;
 export type SpotifyPlayerOptions = {
   /** The name of the Spotify Connect player. It will be visible in other Spotify apps */
   name: string;
@@ -50,6 +64,10 @@ type RequestMap<T> = {
   [ref: number]: PromiseResolver<T>;
 };
 
+/**
+ * Creates an iframe containing the Spotify Web Player, and returns a Player class that can be used to control it.
+ * This code is based on the Spotify JS-SDK v1.10.0.
+ */
 export function initSpotifyPlayer(
   hostWindow: Window,
   iframeFactory: (src: string) => Window = defaultIframeFactory(hostWindow),
@@ -57,7 +75,7 @@ export function initSpotifyPlayer(
   const playerSrc = "https://sdk.scdn.co/embedded/index.html";
   const msgDispatcher = MessageDispatcher.create();
   const isLoaded = new Promise<void>((resolve) => {
-    msgDispatcher.listen(hostWindow, function (t) {
+    msgDispatcher.listen(hostWindow, (t) => {
       if (t === Messages.LOADED) {
         msgDispatcher.stopListening(hostWindow);
         resolve();
@@ -119,7 +137,7 @@ export function initSpotifyPlayer(
     }
 
     private _onEvent(e: { name: MessageType; eventData: unknown }): void {
-      var name = e.name;
+      const name = e.name;
       this._getListeners(
         AnthemEvents[name as keyof typeof AnthemEvents],
       ).forEach((listener) => listener(e.eventData as any));
@@ -323,7 +341,7 @@ type SpotifyPlayerWithPrivateFields = InstanceType<
   ReturnType<typeof initSpotifyPlayer>
 >;
 
-/** Provides an API for interacting with the Spotify Web Playback SDK */
+/** Provides an API for interacting with the Spotify Web Playback SDK. */
 export type SpotifyPlayer = {
   [K in keyof SpotifyPlayerWithPrivateFields]: SpotifyPlayerWithPrivateFields[K];
 };

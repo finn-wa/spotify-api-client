@@ -20,8 +20,9 @@ export {
   initSpotifyPlayer,
   type SpotifyPlayer,
   type SpotifyPlayerOptions,
-  type WebPlaybackState,
 } from "./player/SpotifyPlayer";
+
+export * from "./player/types";
 
 export {
   spotifyAlbumsApi,

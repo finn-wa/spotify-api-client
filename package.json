@@ -15,7 +15,6 @@
     "@biomejs/biome": "2.2.4",
     "@openapitools/openapi-generator-cli": "2.23.1",
     "@types/bun": "latest",
-    "@types/spotify-web-playback-sdk": "^0.1.19",
     "typescript": "5.9.2",
     "vitest": "3.2.4"
   },
