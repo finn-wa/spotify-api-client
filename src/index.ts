@@ -1,4 +1,5 @@
 export {
+  getDefaultCachingStrategy,
   spotifyAuthConfig,
   spotifyAuthViaClientCredentials,
   spotifyAuthViaCodeWithPkce,

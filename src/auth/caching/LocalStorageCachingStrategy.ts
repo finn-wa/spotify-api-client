@@ -1,9 +1,14 @@
 import GenericCache from "./GenericCache.js";
-import type { CacheStore } from "./types.js";
+import type { AutoRenewConfig, CacheStore } from "./types.js";
 
 export default class LocalStorageCachingStrategy extends GenericCache {
-  constructor() {
-    super(new LocalStorageCacheStore());
+  constructor(autoRenewConfig?: AutoRenewConfig) {
+    super(
+      new LocalStorageCacheStore(),
+      undefined,
+      autoRenewConfig?.interval,
+      autoRenewConfig?.expiryWindow,
+    );
   }
 }
 

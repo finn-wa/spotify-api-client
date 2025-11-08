@@ -1,9 +1,14 @@
 import GenericCache from "./GenericCache.js";
-import type { CacheStore } from "./types.js";
+import type { AutoRenewConfig, CacheStore } from "./types.js";
 
 export default class InMemoryCachingStrategy extends GenericCache {
-  constructor() {
-    super(new DictionaryCacheStore());
+  constructor(autoRenewConfig?: AutoRenewConfig) {
+    super(
+      new DictionaryCacheStore(),
+      undefined,
+      autoRenewConfig?.interval,
+      autoRenewConfig?.expiryWindow,
+    );
   }
 }
 

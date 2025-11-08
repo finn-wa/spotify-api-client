@@ -1,5 +1,6 @@
 import InMemoryCachingStrategy from "./caching/InMemoryCachingStrategy";
 import LocalStorageCachingStrategy from "./caching/LocalStorageCachingStrategy";
+import type { AutoRenewConfig } from "./caching/types";
 import { DocumentLocationRedirectionStrategy } from "./redirection/DocumentLocationRedirectionStrategy";
 import type { SpotifyAuthConfig } from "./SpotifyAuthConfig";
 import AuthorizationCodeWithPKCEStrategy from "./strategy/AuthorizationCodeWithPKCEStrategy";
@@ -9,11 +10,11 @@ import ImplicitGrantStrategy from "./strategy/ImplicitGrantStrategy";
 import ProvidedAccessTokenStrategy from "./strategy/ProvidedAccessTokenStrategy";
 import type { AccessToken } from "./token/AccessToken";
 
-export function getDefaultCachingStrategy() {
+export function getDefaultCachingStrategy(autoRenewConfig?: AutoRenewConfig) {
   const isBrowser = typeof window !== "undefined";
   return isBrowser
-    ? new LocalStorageCachingStrategy()
-    : new InMemoryCachingStrategy();
+    ? new LocalStorageCachingStrategy(autoRenewConfig)
+    : new InMemoryCachingStrategy(autoRenewConfig);
 }
 
 export function spotifyAuthConfig(overrides: Partial<SpotifyAuthConfig> = {}) {
