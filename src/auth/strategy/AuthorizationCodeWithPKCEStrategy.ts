@@ -17,7 +17,7 @@ interface CachedVerifier extends Cachable {
 }
 
 export default class AuthorizationCodeWithPKCEStrategy implements SpotifyAuth {
-  private static readonly cacheKey =
+  public static readonly cacheKey =
     "spotify-sdk:AuthorizationCodeWithPKCEStrategy:token";
 
   protected get cache(): CachingStrategy {

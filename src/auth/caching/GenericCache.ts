@@ -3,6 +3,10 @@ import type { CachingStrategy } from "./CachingStrategy.js";
 import type { Cachable, CacheStore } from "./types.js";
 
 export default class GenericCache implements CachingStrategy {
+  private readonly updateListeners: {
+    [key: string]: ((value: any) => void)[];
+  } = {};
+
   constructor(
     private storage: CacheStore,
     private updateFunctions: Map<
@@ -15,6 +19,36 @@ export default class GenericCache implements CachingStrategy {
     if (this.autoRenewInterval > 0) {
       setInterval(() => this.autoRenewRenewableItems(), this.autoRenewInterval);
     }
+  }
+
+  /**
+   * Add a callback that will be invoked each time a cache item is set or
+   * removed. Listeners will not be called for cache items that expire on
+   * access.
+   */
+  public addUpdateListener<T>(
+    cacheKey: string,
+    listener: (value: T | null) => void,
+  ): void {
+    const existingListeners = this.updateListeners[cacheKey];
+    if (existingListeners == null) {
+      this.updateListeners[cacheKey] = [listener];
+      return;
+    }
+    if (!existingListeners.includes(listener)) {
+      existingListeners.push(listener);
+    }
+  }
+
+  public removeUpdateListener<T>(
+    cacheKey: string,
+    listener: (value: T | null) => void,
+  ): void {
+    const listeners = this.updateListeners[cacheKey];
+    if (listeners == null || listeners.length === 0) {
+      return;
+    }
+    this.updateListeners[cacheKey] = listeners.filter((x) => x !== listener);
   }
 
   public async getOrCreate<T>(
@@ -88,10 +122,25 @@ export default class GenericCache implements CachingStrategy {
   public setCacheItem(cacheKey: string, cacheItem: Cachable): void {
     const asString = JSON.stringify(cacheItem);
     this.storage.set(cacheKey, asString);
+    if (cacheItem.expiresOnAccess === true) {
+      return;
+    }
+    const listeners = this.updateListeners[cacheKey];
+    if (listeners != null) {
+      for (const listener of listeners) {
+        listener(cacheItem);
+      }
+    }
   }
 
   public remove(cacheKey: string): void {
     this.storage.remove(cacheKey);
+    const listeners = this.updateListeners[cacheKey];
+    if (listeners != null) {
+      for (const listener of listeners) {
+        listener(null);
+      }
+    }
   }
 
   private itemDueToExpire(item: Cachable): boolean {

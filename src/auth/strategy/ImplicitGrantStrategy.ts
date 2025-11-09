@@ -9,7 +9,7 @@ import {
 import type { SpotifyAuth } from "./AuthStrategy.js";
 
 export default class ImplicitGrantStrategy implements SpotifyAuth {
-  private static readonly cacheKey = "spotify-sdk:ImplicitGrantStrategy:token";
+  public static readonly cacheKey = "spotify-sdk:ImplicitGrantStrategy:token";
   private get cache(): CachingStrategy {
     return this.configuration.cachingStrategy;
   }
